@@ -2,8 +2,8 @@
 
 ## Camera
 oCam-iMGN-U by www.withrobot.com
-1MP USB 3.0 Mono Camera
 
+- 1MP USB 3.0 Mono Camera
 - Global shutter
 - High speed up to 160 frames-per-second at the 320 x 240 resolution
 - UVC compliance
