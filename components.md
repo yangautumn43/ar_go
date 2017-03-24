@@ -11,6 +11,7 @@ oCam-iMGN-U by www.withrobot.com
 ### How to run
 https://github.com/withrobot/oCam/tree/master/Software/oCam_viewer_Linux
 
+build it and then 
 ```bash
 $ cd OCAM_VIEWER_BUILD_DIRECTORY
 $ ./oCam-viewer
@@ -80,8 +81,40 @@ Device Descriptor:
 ``` 
 
 **uvcdynctrl**
+
 libwebcam command line tool
 
+```bash
+roslaunch libuvc_camera libuvc.launch 
+```
+
+```xml
+<launch>
+  <group ns="camera">
+    <node pkg="libuvc_camera" type="camera_node" name="ocam" output="screen">
+      <!-- Parameters used to find the camera -->
+      <param name="vendor" value="0x04b4"/>
+      <param name="product" value="0x00f8"/>
+      <param name="serial" value=""/>
+      <!-- If the above parameters aren't unique, choose the first match: -->
+      <param name="index" value="0"/>
+
+      <!-- Image size and type -->
+      <param name="width" value="640"/>
+      <param name="height" value="480"/>
+      <!-- choose whichever uncompressed format the camera supports: -->
+      <param name="video_mode" value="uncompressed"/> <!-- or yuyv/nv12/jpeg -->
+      <param name="frame_rate" value="80"/>
+
+      <param name="timestamp_method" value="start"/> <!-- start of frame -->
+      <!-- <param name="camera_info_url" value="file:///tmp/cam.yaml"/> -->
+
+      <param name="auto_exposure" value="3"/> <!-- use aperture_priority auto exposure -->
+      <param name="auto_white_balance" value="false"/>
+    </node>
+  </group>
+</launch>
+```
 
 ## IR sensors
 SHARP 68 2Y0A710 F
