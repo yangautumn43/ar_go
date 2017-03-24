@@ -32,11 +32,14 @@ install camera view application guvcview. Run it and you should be able to see t
 
 Get started with the following launch file. If you need assistance with your webcam's supported resolutions and frame rates, try:
 ```bash
-   v4l2-ctl --list-formats-ext
+v4l2-ctl --list-formats-ext
 ```
 
-*Before installing libuvc_ros, we should install libuvc first.* as talked in http://answers.ros.org/question/204840/libuvc_ros-not-building
+**Before installing libuvc_ros, we should install libuvc first.**
+
+As talked in http://answers.ros.org/question/204840/libuvc_ros-not-building
 libuvc is a library that supports enumeration, control and streaming for USB Video Class (UVC) devices, such as consumer webcams.
+
 ```bash
 $ git clone https://github.com/ktossell/libuvc.git
 $ cd libuvc
@@ -46,13 +49,44 @@ $ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ make && make install
 ```
 
-*Install libuvc_ros*
+**Install libuvc_ros**
+
 Download the souce code from https://github.com/ktossell/libuvc_ros to your ROS workspace and build it.
+
 The documentation is in http://wiki.ros.org/libuvc_camera
+
+```bash
+lsusb
+Bus 003 Device 002: ID 04b4:00f8 Cypress Semiconductor Corp. 
+```
+To get the vendor and product IDs
+```bash
+lsusb -d 04b4:00f8 -v
+
+Bus 003 Device 002: ID 04b4:00f8 Cypress Semiconductor Corp. 
+Couldn't open device, some information will be missing
+Device Descriptor:
+  bLength                18
+  bDescriptorType         1
+  bcdUSB               2.00
+  bDeviceClass          239 Miscellaneous Device
+  bDeviceSubClass         2 ?
+  bDeviceProtocol         1 Interface Association
+  bMaxPacketSize0        64
+  idVendor           0x04b4 Cypress Semiconductor Corp.
+  idProduct          0x00f8 
+  bcdDevice           16.11
+...
+``` 
+
+**uvcdynctrl**
+libwebcam command line tool
+
 
 ## IR sensors
 SHARP 68 2Y0A710 F
 
+Two ground and 5V are needed.
 
 
 ## IMU
