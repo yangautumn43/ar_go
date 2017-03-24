@@ -1,6 +1,6 @@
 # Components of the autonomous car
 
-## Camera
+## Camera - Yang Li
 oCam-iMGN-U by www.withrobot.com
 
 - 1MP USB 3.0 Mono Camera
@@ -8,7 +8,7 @@ oCam-iMGN-U by www.withrobot.com
 - High speed up to 160 frames-per-second at the 320 x 240 resolution
 - UVC compliance
 
-### How to run
+### How to run oCam-viewer
 https://github.com/withrobot/oCam/tree/master/Software/oCam_viewer_Linux
 
 build it and then 
@@ -80,10 +80,6 @@ Device Descriptor:
 ...
 ``` 
 
-**uvcdynctrl**
-
-libwebcam command line tool
-
 ```bash
 roslaunch libuvc_camera libuvc.launch 
 ```
@@ -116,7 +112,7 @@ roslaunch libuvc_camera libuvc.launch
 </launch>
 ```
 
-**topics got from running the libuvc_camera**
+**Topics got from running the libuvc_camera**
 ```bash
 yang@colab:~$ rostopic list
 /camera/camera_info
@@ -190,13 +186,18 @@ unsupported descriptor subtype: 13
 ```
 
 
-## IR sensors
+**uvcdynctrl**
+
+libwebcam command line tool
+
+
+## IR sensors - Jay and Yang Li
 SHARP 68 2Y0A710 F
 
 Two ground and 5V are needed.
 
 
-## IMU
+## IMU - Jay
 ```bash
 TODO
 ```
