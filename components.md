@@ -116,6 +116,80 @@ roslaunch libuvc_camera libuvc.launch
 </launch>
 ```
 
+**topics got from running the libuvc_camera**
+```bash
+yang@colab:~$ rostopic list
+/camera/camera_info
+/camera/image_raw
+/camera/image_raw/compressed
+/camera/image_raw/compressed/parameter_descriptions
+/camera/image_raw/compressed/parameter_updates
+/camera/image_raw/compressedDepth
+/camera/image_raw/compressedDepth/parameter_descriptions
+/camera/image_raw/compressedDepth/parameter_updates
+/camera/image_raw/theora
+/camera/image_raw/theora/parameter_descriptions
+/camera/image_raw/theora/parameter_updates
+/camera/ocam/parameter_descriptions
+/camera/ocam/parameter_updates
+/rosout
+/rosout_agg
+```
+
+**Results from running the launch file**
+```bash
+yang@colab:~$ roslaunch libuvc_camera libuvc.launch 
+... logging to /home/yang/.ros/log/d49538ee-10d9-11e7-9400-d43d7eb70ebb/roslaunch-colab-15588.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+started roslaunch server http://localhost:44780/
+
+SUMMARY
+========
+
+PARAMETERS
+ * /camera/ocam/auto_exposure: 3
+ * /camera/ocam/auto_white_balance: False
+ * /camera/ocam/frame_rate: 80
+ * /camera/ocam/height: 480
+ * /camera/ocam/index: 0
+ * /camera/ocam/product: 0x00f8
+ * /camera/ocam/serial: 
+ * /camera/ocam/timestamp_method: start
+ * /camera/ocam/vendor: 0x04b4
+ * /camera/ocam/video_mode: uncompressed
+ * /camera/ocam/width: 640
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.6
+
+NODES
+  /camera/
+    ocam (libuvc_camera/camera_node)
+
+auto-starting new master
+process[master]: started with pid [15599]
+ROS_MASTER_URI=http://localhost:11311
+
+setting /run_id to d49538ee-10d9-11e7-9400-d43d7eb70ebb
+process[rosout-1]: started with pid [15612]
+started core service [/rosout]
+log4cxx: Could not read configuration file [~/rosconsole.config].
+process[camera/ocam-2]: started with pid [15629]
+log4cxx: Could not read configuration file [~/rosconsole.config].
+ INFO ros.libuvc_camera: Opening camera with vendor=0x4b4, product=0xf8, serial="", index=0
+unsupported descriptor subtype: 13
+ WARN ros.libuvc_camera: Unable to set auto_exposure to 8
+ WARN ros.libuvc_camera: Unable to set auto_exposure_priority to 0
+ WARN ros.libuvc_camera: Unable to set auto_focus to 1
+ WARN ros.libuvc_camera: Unable to set focus_absolute to 0
+ WARN ros.libuvc_camera: Unable to set gain to 0
+ WARN ros.libuvc_camera: Unable to set iris_absolute to 0
+ WARN ros.libuvc_camera: Unable to set pantilt to 0, 0
+```
+
+
 ## IR sensors
 SHARP 68 2Y0A710 F
 
