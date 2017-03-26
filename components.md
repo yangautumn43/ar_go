@@ -185,6 +185,15 @@ unsupported descriptor subtype: 13
  WARN ros.libuvc_camera: Unable to set pantilt to 0, 0
 ```
 
+**Run Steve's simple_opencv node**
+Remeber to modify CMakelists.txt about OpenCV3
+
+```
+#If you have a ROS-local install of OpenCV3:
+set(TMP_PREFIX_PATH ${CMAKE_PREFIX_PATH})
+set(CMAKE_PREFIX_PATH "/opt/ros/indigo/share/OpenCV-3.1.0-dev")
+find_package(OpenCV 3.0 REQUIRED)
+```
 
 **uvcdynctrl**
 
