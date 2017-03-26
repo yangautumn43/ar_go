@@ -36,7 +36,7 @@ Get started with the following launch file. If you need assistance with your web
 v4l2-ctl --list-formats-ext
 ```
 
-**Before installing libuvc_ros, we should install libuvc first.**
+### Before installing libuvc_ros, we should install libuvc first
 
 As talked in http://answers.ros.org/question/204840/libuvc_ros-not-building
 libuvc is a library that supports enumeration, control and streaming for USB Video Class (UVC) devices, such as consumer webcams.
@@ -50,7 +50,7 @@ $ cmake -DCMAKE_BUILD_TYPE=Release ..
 $ make && make install
 ```
 
-**Install libuvc_ros**
+### Install libuvc_ros
 
 Download the souce code from https://github.com/ktossell/libuvc_ros to your ROS workspace and build it.
 
@@ -185,7 +185,7 @@ unsupported descriptor subtype: 13
  WARN ros.libuvc_camera: Unable to set pantilt to 0, 0
 ```
 
-**Run Steve's simple_opencv node**
+### Run Steve's simple_opencv node
 
 Remeber to modify CMakelists.txt about OpenCV3
 
