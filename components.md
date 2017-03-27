@@ -54,8 +54,8 @@ $ git clone https://github.com/ktossell/libuvc.git
 $ cd libuvc
 $ mkdir build
 $ cd build
-$ cmake -DCMAKE_BUILD_TYPE=Release ..
-$ make && make install
+$ cmake ..
+$ make && sudo make install
 ```
 
 ### Install libuvc_ros
@@ -94,8 +94,12 @@ roslaunch libuvc_camera libuvc.launch
 
 ```xml
 <launch>
+  <arg name="debug" default="false"/>
+  <arg name="launch_prefix" if="$(arg debug)" default="gdb -e run --args"/>
+  <arg name="launch_prefix" unless="$(arg debug)" default=""/>
+  <!-- output="screen" -->
   <group ns="camera">
-    <node pkg="libuvc_camera" type="camera_node" name="ocam" output="screen">
+    <node pkg="libuvc_camera" type="camera_node" name="ocam" output="screen" launch-prefix="$(arg launch_prefix)">
       <!-- Parameters used to find the camera -->
       <param name="vendor" value="0x04b4"/>
       <param name="product" value="0x00f8"/>
@@ -107,14 +111,14 @@ roslaunch libuvc_camera libuvc.launch
       <param name="width" value="640"/>
       <param name="height" value="480"/>
       <!-- choose whichever uncompressed format the camera supports: -->
-      <param name="video_mode" value="uncompressed"/> <!-- or yuyv/nv12/jpeg -->
+      <param name="video_mode" value="gray8"/> <!-- or yuyv/nv12/jpeg -->
       <param name="frame_rate" value="80"/>
 
       <param name="timestamp_method" value="start"/> <!-- start of frame -->
       <!-- <param name="camera_info_url" value="file:///tmp/cam.yaml"/> -->
 
-      <param name="auto_exposure" value="3"/> <!-- use aperture_priority auto exposure -->
-      <param name="auto_white_balance" value="false"/>
+<!--       <param name="auto_exposure" value="3"/> use aperture_priority auto exposure
+      <param name="auto_white_balance" value="false"/> -->
     </node>
   </group>
 </launch>
@@ -154,8 +158,6 @@ SUMMARY
 ========
 
 PARAMETERS
- * /camera/ocam/auto_exposure: 3
- * /camera/ocam/auto_white_balance: False
  * /camera/ocam/frame_rate: 80
  * /camera/ocam/height: 480
  * /camera/ocam/index: 0
@@ -163,10 +165,11 @@ PARAMETERS
  * /camera/ocam/serial: 
  * /camera/ocam/timestamp_method: start
  * /camera/ocam/vendor: 0x04b4
- * /camera/ocam/video_mode: uncompressed
+ * /camera/ocam/video_mode: gray8
  * /camera/ocam/width: 640
  * /rosdistro: kinetic
  * /rosversion: 1.12.6
+
 
 NODES
   /camera/
