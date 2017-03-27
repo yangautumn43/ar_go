@@ -35,6 +35,12 @@ Get started with the following launch file. If you need assistance with your web
 ```bash
 v4l2-ctl --list-formats-ext
 ```
+Installing "V4l2-ctl" on Ubuntu
+
+Here's how to install "V4l2-ctl" on Ubuntu Linux operating system:
+```
+sudo apt-get install v4l-utils
+```
 
 ### Before installing libuvc_ros, we should install libuvc first
 
