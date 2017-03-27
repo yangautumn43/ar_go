@@ -38,6 +38,8 @@ v4l2-ctl --list-formats-ext
 
 ### Before installing libuvc_ros, we should install libuvc first
 
+Use the updated version mentioned in the libuvc_camera folder of https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros
+
 As talked in http://answers.ros.org/question/204840/libuvc_ros-not-building
 libuvc is a library that supports enumeration, control and streaming for USB Video Class (UVC) devices, such as consumer webcams.
 
@@ -187,6 +189,8 @@ unsupported descriptor subtype: 13
 
 ### Run Steve's simple_opencv node
 
+https://github.com/AdvancedRoboticsCUBoulder/simple_opencv
+
 Remeber to modify CMakelists.txt about OpenCV3
 
 ```
@@ -195,6 +199,9 @@ set(TMP_PREFIX_PATH ${CMAKE_PREFIX_PATH})
 set(CMAKE_PREFIX_PATH "/opt/ros/indigo/share/OpenCV-3.1.0-dev")
 find_package(OpenCV 3.0 REQUIRED)
 ```
+
+There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials
+
 
 **uvcdynctrl**
 
