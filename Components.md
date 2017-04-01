@@ -1,18 +1,23 @@
 # Components of the autonomous car
 
     1. Chasis - 
-    2. Camera - oCam
-    3. IR sensor - SHARP
-    4. ODroid - running Ubuntu MATE 16.04
-    5. Wifi module - plug and play
+    2. ODroid - running Ubuntu MATE 16.04
+    3. Wifi module - plug and play
+    4. Camera - oCam
+    5. IR sensor - SHARP
     6. IMU - 
     7. Servo controller - 
     8. ESC - 
     9. Buck converter
 
 
-
 ## Chasis
+
+
+## ODroid - running Ubuntu MATE 16.04
+
+
+## Wifi module - plug and play
 
 
 ## Camera - Yang Li
