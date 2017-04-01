@@ -13,12 +13,21 @@
 
 ## Chasis
 
+```
+TODO
+```
 
 ## ODroid - running Ubuntu MATE 16.04
 
+```
+TODO
+```
 
 ## Wifi module - plug and play
 
+```
+TODO
+```
 
 ## Camera - oCam-iMGN-U by Yang Li
 oCam-iMGN-U by www.withrobot.com
@@ -233,8 +242,10 @@ There is also tutorial about publishing and subscribing images on http://wiki.ro
 
 
 ### Try to use the Camera class of oCam
-TODO
 
+```
+TODO
+```
 
 ## IR sensors - by Jay and Yang Li
 SHARP 68 2Y0A710 F
@@ -249,5 +260,17 @@ TODO
 
 ## Servo controller - 
 
+```
+TODO
+```
 
 ## Buck converter
+
+```
+TODO
+```
+
+
+
+
+
