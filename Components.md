@@ -20,7 +20,7 @@
 ## Wifi module - plug and play
 
 
-## Camera - Yang Li
+## Camera - oCam-iMGN-U by Yang Li
 oCam-iMGN-U by www.withrobot.com
 
 - 1MP USB 3.0 Mono Camera
@@ -232,19 +232,17 @@ find_package(OpenCV 3.0 REQUIRED)
 There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials
 
 
-**uvcdynctrl** libwebcam command line tool
-
-
 ### Try to use the Camera class of oCam
+TODO
 
 
-## IR sensors - Jay and Yang Li
+## IR sensors - by Jay and Yang Li
 SHARP 68 2Y0A710 F
 
 Two ground and 5V are needed.
 
 
-## IMU - Jay
+## IMU - by Jay
 ```bash
 TODO
 ```
