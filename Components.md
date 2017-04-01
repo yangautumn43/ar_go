@@ -1,4 +1,4 @@
-# Components of the autonomous car
+# Components of the Autonomous Car
 
     1. Chasis - 
     2. ODroid - running Ubuntu MATE 16.04
@@ -246,3 +246,8 @@ Two ground and 5V are needed.
 ```bash
 TODO
 ```
+
+## Servo controller - 
+
+
+## Buck converter

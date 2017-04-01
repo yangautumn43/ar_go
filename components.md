@@ -1,21 +1,26 @@
-# Components of the autonomous car
+# Components of the Autonomous Car
 
     1. Chasis - 
-    2. Camera - oCam
-    3. IR sensor - SHARP
-    4. ODroid - running Ubuntu MATE 16.04
-    5. Wifi module - plug and play
+    2. ODroid - running Ubuntu MATE 16.04
+    3. Wifi module - plug and play
+    4. Camera - oCam
+    5. IR sensor - SHARP
     6. IMU - 
     7. Servo controller - 
     8. ESC - 
     9. Buck converter
 
 
-
 ## Chasis
 
 
-## Camera - Yang Li
+## ODroid - running Ubuntu MATE 16.04
+
+
+## Wifi module - plug and play
+
+
+## Camera - oCam-iMGN-U by Yang Li
 oCam-iMGN-U by www.withrobot.com
 
 - 1MP USB 3.0 Mono Camera
@@ -227,19 +232,22 @@ find_package(OpenCV 3.0 REQUIRED)
 There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials
 
 
-**uvcdynctrl** libwebcam command line tool
-
-
 ### Try to use the Camera class of oCam
+TODO
 
 
-## IR sensors - Jay and Yang Li
+## IR sensors - by Jay and Yang Li
 SHARP 68 2Y0A710 F
 
 Two ground and 5V are needed.
 
 
-## IMU - Jay
+## IMU - by Jay
 ```bash
 TODO
 ```
+
+## Servo controller - 
+
+
+## Buck converter
