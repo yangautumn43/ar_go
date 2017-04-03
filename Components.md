@@ -25,7 +25,7 @@ You now have an ODROID-XU4 http://odroid.com/dokuwiki/doku.php?id=en:odroid-xu4,
 
 **Question**: Describe the setup process and any challenges you encountered.
 
-ROS nodes running on different computers can communicate with each other. In this section you should configure your Odroid and computer to communicate with each other. Read the tutorial on this at http://wiki.ros.org/ROS/Tutorials/MultipleMachines for details. You should also read the networking troubleshooting guide at http://wiki.ros.org/ROS/NetworkSetup as you will need to do some network setup to make this work right. To summarize the first step (2.3 in the NetworkSetup) is to add an entry in the /etc/hosts on your machine and the Odroid to allow them to resolve the IP addresses against the hostname of the machines. You can then start the roscore on the Odroid1 and tell your computer where that core resides with the command export ROS_MASTER_URI=http://odroid:11311, where odriod is the hostname of your Odriod.
+ROS nodes running on different computers can communicate with each other. In this section you should configure your Odroid and computer to communicate with each other. Read the tutorial on this at http://wiki.ros.org/ROS/Tutorials/MultipleMachines for details. You should also read the networking troubleshooting guide at http://wiki.ros.org/ROS/NetworkSetup as you will need to do some network setup to make this work right. To summarize the first step (2.3 in the NetworkSetup) is to add an entry in the ```/etc/hosts``` on your machine and the Odroid to allow them to resolve the IP addresses against the hostname of the machines. You can then start the roscore on the Odroid1 and tell your computer where that core resides with the command ```export ROS_MASTER_URI=http://odroid:11311```, where *odriod* is the hostname of your Odriod.
 
 Once this is configured you can launch some rosnodes on the Odroid and others on your computer and they will be able to communicate with each other. This is advantageous as you can run the nodes that you are not changing on the Odroid and the ones that you are changing on your own laptop (to allow easier editing and faster compiling). This is also good since you can run the vision processing code on the Odroid to prevent sending all of the images across the network, which can cause significant slowdowns.
 
@@ -33,10 +33,10 @@ Once this is configured you can launch some rosnodes on the Odroid and others on
 
 Some important reminders regarding your Odroid:
 1. When you are switching batteries, you can plug the Odroid into the wall power in addition to providing power from the battery. Do not leave both connected for any significant amount of time.
-2. Make sure to issue the sudo shutdown command before disconnecting power from the Odroid. If you do not, you may corrupt the file system or you may not be able to log in properly.
+2. Make sure to issue the ```sudo shutdown``` command before disconnecting power from the Odroid. If you do not, you may corrupt the file system or you may not be able to log in properly.
 3. You should set the password on your Odroid account to something your group knows and not just the default password as this could cause confusion among groups.
 4. You should primarily be connected to the lab wifi, which is not connected to the internet. You can connect to unl-air to update software, but you will not be able to easily set the ROS master node to another computer while on unl-air.
-5. If you have trouble getting your computer running ROS to talk with the Odroid be sure to double check the IP addresses and hostnames in /etc/hosts on both computers.
+5. If you have trouble getting your computer running ROS to talk with the Odroid be sure to double check the IP addresses and hostnames in ```/etc/hosts``` on both computers.
 
 refrence to: http://cse.unl.edu/~carrick/courses/2015/439/lab3/lab3.html
 
