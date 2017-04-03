@@ -282,9 +282,7 @@ TODO
 
 ## Buck converter
 
-```
-TODO
-```
+As I remembered: Input 5.6+ v --> Output 5.0 v
 
 
 
