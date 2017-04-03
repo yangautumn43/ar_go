@@ -17,7 +17,7 @@
 TODO
 ```
 
-## ODroid - running Ubuntu MATE 16.04
+## ODROID-XU4 - Running Ubuntu 16.04 MATE
 
 ### Odroid Setup
 
