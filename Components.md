@@ -13,8 +13,7 @@
 
 ## Chasis
 
-1/10 AMP MT 2WD Monster Truck RTR ECX03028T2
-http://www.horizonhobby.com/product/cars-and-trucks/cars-and-trucks-14524--1/electric-cars-and-trucks/1-10-amp-mt-2wd-monster-truck-rtr--black-green-p-ecx03028t2
+[1/10 AMP MT 2WD Monster Truck RTR ECX03028T2](http://www.horizonhobby.com/product/cars-and-trucks/cars-and-trucks-14524--1/electric-cars-and-trucks/1-10-amp-mt-2wd-monster-truck-rtr--black-green-p-ecx03028t2)
 
 
 
@@ -22,7 +21,7 @@ http://www.horizonhobby.com/product/cars-and-trucks/cars-and-trucks-14524--1/ele
 
 ### Odroid Setup
 
-You now have an ODROID-XU4 http://odroid.com/dokuwiki/doku.php?id=en:odroid-xu4, which is a small, yet powerful, processing board that can run GUN/Linux and ROS. We have already configured it with ROS and Ubuntu. You can use the monitors and keyboards in the lab to connect to it and do initial configuration (e.g. connecting to the lab wifi, figuring out the IP address, setting a new password, etc), but once you have it configured you will not need to use a monitor. Instead, you should use ssh to connect to it from your computer (and commands like scp to copy code) and launch ros nodes from the command line. Your first task is to move all of your code over to the Odroid and test your Lab 2 code.
+You now have an [ODROID-XU4](http://odroid.com/dokuwiki/doku.php?id=en:odroid-xu4), which is a small, yet powerful, processing board that can run GUN/Linux and ROS. We have already configured it with ROS and Ubuntu. You can use the monitors and keyboards in the lab to connect to it and do initial configuration (e.g. connecting to the lab wifi, figuring out the IP address, setting a new password, etc), but once you have it configured you will not need to use a monitor. Instead, you should use ssh to connect to it from your computer (and commands like scp to copy code) and launch ros nodes from the command line. Your first task is to move all of your code over to the Odroid and test your Lab 2 code.
 
 **Question**: Describe the setup process and any challenges you encountered.
 
@@ -47,7 +46,7 @@ refrence to: http://cse.unl.edu/~carrick/courses/2015/439/lab3/lab3.html
 Nothing special to do with it
 ```
 
-## Camera - oCam-iMGN-U by Yang Li
+## Camera - Yang Li
 oCam-iMGN-U by www.withrobot.com
 
 - 1MP USB 3.0 Mono Camera
@@ -56,7 +55,7 @@ oCam-iMGN-U by www.withrobot.com
 - UVC compliance
 
 ### How to run oCam-viewer
-https://github.com/withrobot/oCam/tree/master/Software/oCam_viewer_Linux
+Use [oCam_viewer_Linux](https://github.com/withrobot/oCam/tree/master/Software/oCam_viewer_Linux)
 
 build it and then 
 ```bash
@@ -97,9 +96,9 @@ I wrote the [ocam_publisher](https://github.com/yangautumn/ar_go_ws/tree/master/
     
 ### Before installing libuvc_ros, we should install libuvc first
 
-Use the updated version mentioned in the libuvc_camera folder of https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros
+Use the updated version mentioned in the libuvc_camera folder of [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros)
 
-As talked in http://answers.ros.org/question/204840/libuvc_ros-not-building
+As mentioned in http://answers.ros.org/question/204840/libuvc_ros-not-building,
 libuvc is a library that supports enumeration, control and streaming for USB Video Class (UVC) devices, such as consumer webcams.
 
 ```bash
@@ -113,7 +112,7 @@ $ make && sudo make install
 
 ### Install libuvc_ros
 
-Download the souce code from https://github.com/ktossell/libuvc_ros to your ROS workspace and build it.
+Download the souce code from [libuvc_ros](https://github.com/ktossell/libuvc_ros) to your ROS workspace and build it.
 
 The documentation is in http://wiki.ros.org/libuvc_camera
 
@@ -249,11 +248,7 @@ unsupported descriptor subtype: 13
  WARN ros.libuvc_camera: Unable to set pantilt to 0, 0
 ```
 
-### Run Steve's simple_opencv node
-
-https://github.com/AdvancedRoboticsCUBoulder/simple_opencv
-
-Remeber to modify CMakelists.txt about OpenCV3
+### Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
 
 ```
 #If you have a ROS-local install of OpenCV3:
@@ -264,18 +259,18 @@ find_package(OpenCV 3.0 REQUIRED)
 
 There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials
 
-## IR sensors - by Jay and Yang Li
+## IR sensors - Radhen
 SHARP 68 2Y0A710 F
 
 Two ground and 5V are needed.
 
 
-## IMU - by Jay
+## IMU - Jay
 ```bash
 TODO
 ```
 
-## Servo controller - 
+## Servo controller - Radhen
 
 ```
 TODO
