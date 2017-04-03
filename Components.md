@@ -19,14 +19,31 @@ TODO
 
 ## ODroid - running Ubuntu MATE 16.04
 
-```
-TODO
-```
+### Odroid Setup
+
+You now have an ODROID-XU4 http://odroid.com/dokuwiki/doku.php?id=en:odroid-xu4, which is a small, yet powerful, processing board that can run GUN/Linux and ROS. We have already configured it with ROS and Ubuntu. You can use the monitors and keyboards in the lab to connect to it and do initial configuration (e.g. connecting to the lab wifi, figuring out the IP address, setting a new password, etc), but once you have it configured you will not need to use a monitor. Instead, you should use ssh to connect to it from your computer (and commands like scp to copy code) and launch ros nodes from the command line. Your first task is to move all of your code over to the Odroid and test your Lab 2 code.
+
+**Question**: Describe the setup process and any challenges you encountered.
+
+ROS nodes running on different computers can communicate with each other. In this section you should configure your Odroid and computer to communicate with each other. Read the tutorial on this at http://wiki.ros.org/ROS/Tutorials/MultipleMachines for details. You should also read the networking troubleshooting guide at http://wiki.ros.org/ROS/NetworkSetup as you will need to do some network setup to make this work right. To summarize the first step (2.3 in the NetworkSetup) is to add an entry in the /etc/hosts on your machine and the Odroid to allow them to resolve the IP addresses against the hostname of the machines. You can then start the roscore on the Odroid1 and tell your computer where that core resides with the command export ROS_MASTER_URI=http://odroid:11311, where odriod is the hostname of your Odriod.
+
+Once this is configured you can launch some rosnodes on the Odroid and others on your computer and they will be able to communicate with each other. This is advantageous as you can run the nodes that you are not changing on the Odroid and the ones that you are changing on your own laptop (to allow easier editing and faster compiling). This is also good since you can run the vision processing code on the Odroid to prevent sending all of the images across the network, which can cause significant slowdowns.
+
+**Question**: Describe the setup process for getting ROS to run on both your Odroid and your laptop. Write two nodes that communicate with each other to determine the network latency. To do this you can have node A send a message with a header time and then have node B just echo that message back to node A. Record the length of time that it takes for the message to do the round trip. Try changing the amount of data transmitted in the message (e.g. add an array or image that you transmit) to see how this impacts the latency. Compare this when running the nodes on a single machine versus across the network.
+
+Some important reminders regarding your Odroid:
+1. When you are switching batteries, you can plug the Odroid into the wall power in addition to providing power from the battery. Do not leave both connected for any significant amount of time.
+2. Make sure to issue the sudo shutdown command before disconnecting power from the Odroid. If you do not, you may corrupt the file system or you may not be able to log in properly.
+3. You should set the password on your Odroid account to something your group knows and not just the default password as this could cause confusion among groups.
+4. You should primarily be connected to the lab wifi, which is not connected to the internet. You can connect to unl-air to update software, but you will not be able to easily set the ROS master node to another computer while on unl-air.
+5. If you have trouble getting your computer running ROS to talk with the Odroid be sure to double check the IP addresses and hostnames in /etc/hosts on both computers.
+
+refrence to: http://cse.unl.edu/~carrick/courses/2015/439/lab3/lab3.html
 
 ## Wifi module - plug and play
 
 ```
-TODO
+Nothing special to do with it
 ```
 
 ## Camera - oCam-iMGN-U by Yang Li
