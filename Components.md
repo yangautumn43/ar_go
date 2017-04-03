@@ -5,9 +5,9 @@
     3. Wifi module - plug and play
     4. Camera - oCam
     5. IR sensor - SHARP
-    6. IMU - 
-    7. Servo controller - 
-    8. ESC
+    6. IMU
+    7. Servo controller
+    8. Electronic speed control (ESC)
     9. Buck converter
 
 
@@ -88,6 +88,13 @@ Here's how to install "V4l2-ctl" on Ubuntu Linux operating system:
 ```
 sudo apt-get install v4l-utils
 ```
+
+
+### Use the Camera class of oCam (This is the way we use on ODROID)
+**No need to do the following sections on oCam**
+
+    https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher
+
 
 ### Before installing libuvc_ros, we should install libuvc first
 
@@ -258,11 +265,6 @@ find_package(OpenCV 3.0 REQUIRED)
 
 There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials
 
-
-### Try to use the Camera class of oCam
-
-    TODO
-
 ## IR sensors - by Jay and Yang Li
 SHARP 68 2Y0A710 F
 
@@ -279,6 +281,12 @@ TODO
 ```
 TODO
 ```
+
+## Electronic speed control (ESC)
+
+(From wikipedia) An electronic speed control or ESC is an electronic circuit with the purpose to vary an electric motor's speed, its direction and possibly also to act as a dynamic brake. ESCs are often used on electrically powered radio controlled models, with the variety most often used for brushless motors essentially providing an electronically generated three-phase electric power low voltage source of energy for the motor.
+
+PWM (Pulse Width Modulation / High rate control): The control of motor speed is obtained by switching the power to the motor on and off in various ratios e.g. maximum throttle is permanently on, half throttle is on half time, off half time etc. This switching on and off is done many times a second. The speed at which the switching takes place has a large effect on overall efficiency. Early speed controls used what is known as "frame rate" switching, which means that they switched approximately 50 times a second, the same rate as frames of information are delivered over the radio. Most modern ESCs switch at a much higher rate which makes them much more efficient i.e. they lose less power as heat in the controller. Switching rates around 3000 Hz (times a second) are about optimum. Anywhere between 1000 Hz and 5000Hz is acceptable.
 
 ## Buck converter
 
