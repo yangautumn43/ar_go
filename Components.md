@@ -268,6 +268,9 @@ SHARP 68 2Y0A710 F
 
 Two ground and 5V are needed.
 
+Driver for SharpIR sensor.
+https://github.com/guillaume-rico/SharpIR
+
 
 ## IMU - by Jay
 ```bash
