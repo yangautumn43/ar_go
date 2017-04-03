@@ -90,12 +90,11 @@ sudo apt-get install v4l-utils
 ```
 
 
-### Use the Camera class of oCam (This is the way we use on ODROID)
+### Use the oCam library (This is the way we use on ODROID)
 **No need to do the following sections on oCam**
-
-    https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher
-
-
+By using the library they provides us in [Examples/opencv-basic_1MGN](https://github.com/withrobot/oCam/tree/master/Examples/opencv-basic_1MGN),
+I wrote the [ocam_publisher](https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher) ROS node to publish the image read from oCam to a ROS topic ```/camera/image```.
+    
 ### Before installing libuvc_ros, we should install libuvc first
 
 Use the updated version mentioned in the libuvc_camera folder of https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros
