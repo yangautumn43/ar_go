@@ -1,21 +1,22 @@
 # Components of the Autonomous Car
 
-    1. Chasis - 
+    1. Chasis
     2. ODroid - running Ubuntu MATE 16.04
     3. Wifi module - plug and play
     4. Camera - oCam
     5. IR sensor - SHARP
     6. IMU - 
     7. Servo controller - 
-    8. ESC - 
+    8. ESC
     9. Buck converter
 
 
 ## Chasis
 
-```
-TODO
-```
+1/10 AMP MT 2WD Monster Truck RTR ECX03028T2
+http://www.horizonhobby.com/product/cars-and-trucks/cars-and-trucks-14524--1/electric-cars-and-trucks/1-10-amp-mt-2wd-monster-truck-rtr--black-green-p-ecx03028t2
+
+
 
 ## ODROID-XU4 - Running Ubuntu 16.04 MATE
 
