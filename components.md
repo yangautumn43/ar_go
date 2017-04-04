@@ -262,6 +262,9 @@ There is also tutorial about publishing and subscribing images on http://wiki.ro
 ## IR sensors - Radhen
 SHARP 68 2Y0A710 F
 
+Driver for SharpIR sensor.
+https://github.com/guillaume-rico/SharpIR
+
 Two ground and 5V are needed.
 
 
