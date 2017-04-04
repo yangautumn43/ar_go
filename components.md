@@ -1,14 +1,15 @@
 # Components of the Autonomous Car
 
-    1. [Chasis](#chasis)
-    2. ODroid - running Ubuntu MATE 16.04
-    3. Wifi module - plug and play
-    4. Camera - oCam
-    5. IR sensor - SHARP
-    6. IMU
-    7. Servo controller
-    8. Electronic speed control (ESC)
-    9. Buck converter
+## Contents
+1. [Chasis](#chasis)
+2. [ODroid - running Ubuntu 16.04 MATE](#odroid-xu4)
+3. [Wifi module - plug and play](#wifi-module)
+4. [Camera - oCam](#camera---yang-li)
+5. [IR sensor - SHARP](#ir-sensors---radhen)
+6. [IMU](#imu---jay)
+7. [Servo controller](#servo-controller---radhen)
+8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
+9. [Buck converter](#buck-converter)
 
 
 ## Chasis
