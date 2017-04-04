@@ -1,6 +1,6 @@
 # Components of the Autonomous Car
 
-    1. [Chasis](#Chasis)
+    1. [Chasis](#chasis)
     2. ODroid - running Ubuntu MATE 16.04
     3. Wifi module - plug and play
     4. Camera - oCam
@@ -17,7 +17,9 @@
 
 
 
-## ODROID-XU4 - Running Ubuntu 16.04 MATE
+## ODROID-XU4
+
+**Running Ubuntu 16.04 MATE**
 
 ### Odroid Setup
 
@@ -40,10 +42,10 @@ Some important reminders regarding your Odroid:
 
 refrence to: http://cse.unl.edu/~carrick/courses/2015/439/lab3/lab3.html
 
-## Wifi module - plug and play
+## Wifi module
 
 ```
-Nothing special to do with it
+plug and play. Nothing special.
 ```
 
 ## Camera - Yang Li
