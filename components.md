@@ -1,6 +1,6 @@
 # Components of the Autonomous Car
 
-    1. Chasis
+    1. [Chasis](#Chasis)
     2. ODroid - running Ubuntu MATE 16.04
     3. Wifi module - plug and play
     4. Camera - oCam
