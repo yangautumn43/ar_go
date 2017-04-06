@@ -98,7 +98,7 @@ By using the library they provides us in [Examples/opencv-basic_1MGN](https://gi
 I wrote the [ocam_publisher](https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher) ROS node to publish the image read from oCam to a ROS topic ```/camera/image```.
     
     
-### Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
+#### Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
 
 ```
 #If you have a ROS-local install of OpenCV3:
@@ -127,7 +127,7 @@ $ cmake ..
 $ make && sudo make install
 ```
 
-### Install libuvc_ros
+#### Install libuvc_ros
 
 Download the souce code from [libuvc_ros](https://github.com/ktossell/libuvc_ros) to your ROS workspace and build it.
 
