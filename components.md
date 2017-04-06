@@ -92,24 +92,26 @@ sudo apt-get install v4l-utils
 ```
 
 
-### Use the oCam library (This is the way we use on ODROID)
-**No need to do the following sections on oCam**
+### METHOD 1: Use the oCam library (This is the way we use on ODROID)
+#### 1. Use [ocam_publisher](https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher) to read and publish image
 By using the library they provides us in [Examples/opencv-basic_1MGN](https://github.com/withrobot/oCam/tree/master/Examples/opencv-basic_1MGN),
 I wrote the [ocam_publisher](https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher) ROS node to publish the image read from oCam to a ROS topic ```/camera/image```.
-
-
-### Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
-
-```
-#If you have a ROS-local install of OpenCV3:
-set(TMP_PREFIX_PATH ${CMAKE_PREFIX_PATH})
-set(CMAKE_PREFIX_PATH "/opt/ros/indigo/share/OpenCV-3.1.0-dev")
-find_package(OpenCV 3.0 REQUIRED)
-```
+    
+#### 2. Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
+With it, we get the image from camera/image topic, and apply some OpenCV functions to the image.
 
 There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials    
 
-### The other method is using libuvc_ros package
+#### 3. Set the udev rules
+
+Copy the udev rules from ```libuvc_camera/53-uvc.rules``` in [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros) to ```/etc/udev/rules.d```, then run:
+``` 
+udevadm control -R
+```
+
+as root to reload the hotplug rules. Your camera should be detected as /dev/video[0-9]
+
+### METHOD 2: Use libuvc_ros package
 
 **This should be the common method, but I can't get image when I run the package.**
 
@@ -127,7 +129,7 @@ $ cmake ..
 $ make && sudo make install
 ```
 
-### Install libuvc_ros
+#### Install libuvc_ros
 
 Download the souce code from [libuvc_ros](https://github.com/ktossell/libuvc_ros) to your ROS workspace and build it.
 
