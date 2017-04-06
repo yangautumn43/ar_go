@@ -1,14 +1,15 @@
 # Components of the Autonomous Car
 
-    1. Chasis
-    2. ODroid - running Ubuntu MATE 16.04
-    3. Wifi module - plug and play
-    4. Camera - oCam
-    5. IR sensor - SHARP
-    6. IMU
-    7. Servo controller
-    8. Electronic speed control (ESC)
-    9. Buck converter
+## Contents
+1. [Chasis](#chasis)
+2. [ODroid - running Ubuntu 16.04 MATE](#odroid-xu4)
+3. [Wifi module - plug and play](#wifi-module)
+4. [Camera - oCam](#camera---yang-li)
+5. [IR sensor - SHARP](#ir-sensors---radhen)
+6. [IMU](#imu---jay)
+7. [Servo controller](#servo-controller---radhen)
+8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
+9. [Buck converter](#buck-converter)
 
 
 ## Chasis
@@ -17,7 +18,9 @@
 
 
 
-## ODROID-XU4 - Running Ubuntu 16.04 MATE
+## ODROID-XU4
+
+**Running Ubuntu 16.04 MATE**
 
 ### Odroid Setup
 
@@ -40,10 +43,10 @@ Some important reminders regarding your Odroid:
 
 refrence to: http://cse.unl.edu/~carrick/courses/2015/439/lab3/lab3.html
 
-## Wifi module - plug and play
+## Wifi module
 
 ```
-Nothing special to do with it
+plug and play. Nothing special.
 ```
 
 ## Camera - Yang Li
@@ -94,9 +97,23 @@ sudo apt-get install v4l-utils
 By using the library they provides us in [Examples/opencv-basic_1MGN](https://github.com/withrobot/oCam/tree/master/Examples/opencv-basic_1MGN),
 I wrote the [ocam_publisher](https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher) ROS node to publish the image read from oCam to a ROS topic ```/camera/image```.
     
-### Before installing libuvc_ros, we should install libuvc first
+    
+### Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
 
-Use the updated version mentioned in the libuvc_camera folder of [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros)
+```
+#If you have a ROS-local install of OpenCV3:
+set(TMP_PREFIX_PATH ${CMAKE_PREFIX_PATH})
+set(CMAKE_PREFIX_PATH "/opt/ros/indigo/share/OpenCV-3.1.0-dev")
+find_package(OpenCV 3.0 REQUIRED)
+```
+
+There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials    
+
+### The other method is using libuvc_ros package
+
+**This should be the common method, but I can't get image when I run the package.**
+
+Use the updated version mentioned in the libuvc_camera folder of [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros). **Read the readme file to set permission rule to the camera.**
 
 As mentioned in http://answers.ros.org/question/204840/libuvc_ros-not-building,
 libuvc is a library that supports enumeration, control and streaming for USB Video Class (UVC) devices, such as consumer webcams.
@@ -247,17 +264,6 @@ unsupported descriptor subtype: 13
  WARN ros.libuvc_camera: Unable to set iris_absolute to 0
  WARN ros.libuvc_camera: Unable to set pantilt to 0, 0
 ```
-
-### Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
-
-```
-#If you have a ROS-local install of OpenCV3:
-set(TMP_PREFIX_PATH ${CMAKE_PREFIX_PATH})
-set(CMAKE_PREFIX_PATH "/opt/ros/indigo/share/OpenCV-3.1.0-dev")
-find_package(OpenCV 3.0 REQUIRED)
-```
-
-There is also tutorial about publishing and subscribing images on http://wiki.ros.org/image_transport/Tutorials
 
 ## IR sensors - Radhen
 SHARP 68 2Y0A710 F
