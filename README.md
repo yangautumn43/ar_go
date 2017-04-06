@@ -1,3 +1,21 @@
 # ar_go
 Autonomous car project repo of Advanced Robotics
-## Start date March 21, 2017
+
+## Competition description
+
+![competition description][comp_describ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+[comp_describ]:pics/competition_description.JPG
+
