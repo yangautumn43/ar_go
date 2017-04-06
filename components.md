@@ -105,8 +105,9 @@ There is also tutorial about publishing and subscribing images on http://wiki.ro
 
 #### 3. Set the udev rules
 
-Copy the udev rules from libuvc_camera/53-uvc.rules in [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros) to /etc/udev/rules.d, then run:
-``` udevadm control -R
+Copy the udev rules from ```libuvc_camera/53-uvc.rules``` in [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros) to ```/etc/udev/rules.d```, then run:
+``` 
+udevadm control -R
 ```
 
 as root to reload the hotplug rules. Your camera should be detected as /dev/video[0-9]
