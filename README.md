@@ -8,18 +8,6 @@ Please get your tasks and update your progress on the project in the **Progress*
     * Report your recent progress
     * Share ideas
 
-## Competition description
-
-### The challenges we choose:
-* Stop in front of stop-sign
-* Avoid a rolling ball
-* Visual inertial SLAM
-
-Below is the brief description of the competition:
-
-![competition description][comp_describ]
-
-
 ## Progress
     Format:
        * Name
@@ -32,6 +20,35 @@ Below is the brief description of the competition:
 * Working on visual-inertial SLAM
 * Will dig into the ORB-SLAM
 
+### Radhen
+
+
+### Jay
+
+
+### Ao
+
+
+### Yueming
+
+
+
+## Competition description
+
+### The challenges we choose:
+* Stop in front of stop-sign
+* Avoid a rolling ball
+* Visual inertial SLAM
+
+Below is the brief description of the competition:
+
+![competition description][comp-describ]
+
+ROS topics that are needed for the project [parts]:
+![ros topics][ros-topics]
+
+Note of the first meeting:
+![first meeting note][meeting-1]
 
 
 
@@ -41,5 +58,6 @@ Below is the brief description of the competition:
 
 
 
-[comp_describ]:pics/competition_description.JPG
-
+[comp-describ]:pics/competition_description.JPG
+[meeting-1]:pics/first_meeting_framework.JPG
+[ros-topics]:pics/ros_topics_needed_[part].JPG
