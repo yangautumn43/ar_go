@@ -60,7 +60,7 @@ oCam-iMGN-U by www.withrobot.com
 ### How to run oCam-viewer
 Use [oCam_viewer_Linux](https://github.com/withrobot/oCam/tree/master/Software/oCam_viewer_Linux)
 
-build it and then 
+build it and then
 ```bash
 $ cd OCAM_VIEWER_BUILD_DIRECTORY
 $ ./oCam-viewer
@@ -96,8 +96,8 @@ sudo apt-get install v4l-utils
 **No need to do the following sections on oCam**
 By using the library they provides us in [Examples/opencv-basic_1MGN](https://github.com/withrobot/oCam/tree/master/Examples/opencv-basic_1MGN),
 I wrote the [ocam_publisher](https://github.com/yangautumn/ar_go_ws/tree/master/src/ocam_publisher) ROS node to publish the image read from oCam to a ROS topic ```/camera/image```.
-    
-    
+
+
 ### Run Steve's [simple_opencv](https://github.com/AdvancedRoboticsCUBoulder/simple_opencv) node
 
 ```
@@ -135,13 +135,13 @@ The documentation is in http://wiki.ros.org/libuvc_camera
 
 ```bash
 lsusb
-Bus 003 Device 002: ID 04b4:00f8 Cypress Semiconductor Corp. 
+Bus 003 Device 002: ID 04b4:00f8 Cypress Semiconductor Corp.
 ```
 To get the vendor and product IDs
 ```bash
 lsusb -d 04b4:00f8 -v
 
-Bus 003 Device 002: ID 04b4:00f8 Cypress Semiconductor Corp. 
+Bus 003 Device 002: ID 04b4:00f8 Cypress Semiconductor Corp.
 Couldn't open device, some information will be missing
 Device Descriptor:
   bLength                18
@@ -152,13 +152,13 @@ Device Descriptor:
   bDeviceProtocol         1 Interface Association
   bMaxPacketSize0        64
   idVendor           0x04b4 Cypress Semiconductor Corp.
-  idProduct          0x00f8 
+  idProduct          0x00f8
   bcdDevice           16.11
 ...
-``` 
+```
 
 ```bash
-roslaunch libuvc_camera libuvc.launch 
+roslaunch libuvc_camera libuvc.launch
 ```
 
 ```xml
@@ -215,7 +215,7 @@ yang@colab:~$ rostopic list
 
 **Results from running the launch file**
 ```bash
-yang@colab:~$ roslaunch libuvc_camera libuvc.launch 
+yang@colab:~$ roslaunch libuvc_camera libuvc.launch
 ... logging to /home/yang/.ros/log/d49538ee-10d9-11e7-9400-d43d7eb70ebb/roslaunch-colab-15588.log
 Checking log directory for disk usage. This may take awhile.
 Press Ctrl-C to interrupt
@@ -231,7 +231,7 @@ PARAMETERS
  * /camera/ocam/height: 480
  * /camera/ocam/index: 0
  * /camera/ocam/product: 0x00f8
- * /camera/ocam/serial: 
+ * /camera/ocam/serial:
  * /camera/ocam/timestamp_method: start
  * /camera/ocam/vendor: 0x04b4
  * /camera/ocam/video_mode: gray8
@@ -271,7 +271,8 @@ SHARP 68 2Y0A710 F
 Driver for SharpIR sensor.
 https://github.com/guillaume-rico/SharpIR
 
-Two ground and 5V are needed.
+Pin layout/product manual
+file:///Users/macbookpro15/Downloads/SharpGP2Y0A710K0F_Manual.pdf
 
 
 ## IMU - Jay
@@ -280,10 +281,20 @@ TODO
 ```
 
 ## Servo controller - Radhen
+Initial setup:
+Install Linux driver and control center for Pololu Maestro board
+https://www.pololu.com/docs/0J40/3.b
 
-```
-TODO
-```
+Pololu Maestro Servo Controller User’s Guide
+https://www.pololu.com/docs/0J40
+
+Servo Controller programming:
+ros_pololu_servo package for servo control via USB
+https://github.com/geni-lab/ros_pololu_servo
+
+PID controller
+http://wiki.ros.org/pid
+
 
 ## Electronic speed control (ESC)
 
@@ -294,8 +305,3 @@ PWM (Pulse Width Modulation / High rate control): The control of motor speed is 
 ## Buck converter
 
 As I remembered: Input 5.6+ v --> Output 5.0 v
-
-
-
-
-

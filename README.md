@@ -21,7 +21,11 @@ Please get your tasks and update your progress on the project in the **Progress*
 * Will dig into the ORB-SLAM
 
 ### Radhen
-
+* [x] Got ros_pololu_servo package working for steering
+* [x] Wrote PID controller for steering
+* Need to set the gains for real run to drive in straight line
+* Plan to integrate thrust motor with the ros_pololu_servo package
+* Need to write code to take right angle turns 
 
 ### Jay
 
