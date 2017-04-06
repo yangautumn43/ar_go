@@ -3,6 +3,11 @@
     Team members: Yang, Radhen, Jay, Ao and Yueming
 
 Please get your tasks and update your progress on the project in the **Progress** section
+
+    * Setup regular meeting schedule for the rest of the time
+    * Report your recent progress
+    * Share ideas
+
 ## Competition description
 
 ### The challenges we choose:
