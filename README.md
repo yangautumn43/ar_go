@@ -1,7 +1,6 @@
 # ar_go
-Autonomous vehicle project repo of Advanced Robotics
-
-Team members: Yang, Radhen, Jay, Ao and Yueming
+    Autonomous vehicle project repo of Advanced Robotics
+    Team members: Yang, Radhen, Jay, Ao and Yueming
 
 Please get your tasks and update your progress on the project in the **Progress** section
 ## Competition description
