@@ -345,4 +345,25 @@ One I used:
 ```
 ./Examples/Monocular/mono_tum Vocabulary/ORBvoc.txt Examples/Monocular/TUM1.yaml ~/Downloads/freiburg1_xyz 
 ```
+#### Building the nodes for mono, monoAR, stereo and RGB-D
+
+Add the path including `Examples/ROS/ORB_SLAM2` to the `ROS_PACKAGE_PATH` environment variable. Open `.bashrc` file and add at the end the following line. Replace `PATH` by the folder where you cloned ORB_SLAM2:
+```
+export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:PATH/ORB_SLAM2/Examples/ROS
+```
+Execute `build_ros.sh` script:
+```
+chmod +x build_ros.sh
+./build_ros.sh
+```
+#### Running Monocular Node
+
+For a monocular input from topic `/camera/image_raw` run node `ORB_SLAM2/Mono`. You will need to provide the vocabulary file and a settings file. See the monocular examples above.
+
+```
+rosrun ORB_SLAM2 Mono PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
+```
+
+
+
 
