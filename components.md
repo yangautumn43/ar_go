@@ -364,6 +364,63 @@ For a monocular input from topic `/camera/image_raw` run node `ORB_SLAM2/Mono`. 
 rosrun ORB_SLAM2 Mono PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
 ```
 
-
-
+```YAML
+  1 %YAML:1.0                                                                                                               
+  2 
+  3 #--------------------------------------------------------------------------------------------
+  4 # Camera Parameters. Adjust them!
+  5 #--------------------------------------------------------------------------------------------
+  6 
+  7 # Camera calibration and distortion parameters (OpenCV) 
+  8 Camera.fx: 517.306408
+  9 Camera.fy: 516.469215
+ 10 Camera.cx: 318.643040
+ 11 Camera.cy: 255.313989
+ 12 
+ 13 Camera.k1: 0.262383
+ 14 Camera.k2: -0.953104
+ 15 Camera.p1: -0.005358
+ 16 Camera.p2: 0.002628
+ 17 Camera.k3: 1.163314
+ 18 
+ 19 # Camera frames per second 
+ 20 Camera.fps: 30.0
+ 21 
+ 22 # Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+ 23 Camera.RGB: 1
+ 24 
+ 25 #--------------------------------------------------------------------------------------------
+ 26 # ORB Parameters
+ 27 #--------------------------------------------------------------------------------------------
+ 28 
+ 29 # ORB Extractor: Number of features per image
+ 30 ORBextractor.nFeatures: 1000
+ 31 
+ 32 # ORB Extractor: Scale factor between levels in the scale pyramid   
+ 33 ORBextractor.scaleFactor: 1.2
+ 34 
+ 35 # ORB Extractor: Number of levels in the scale pyramid  
+ 36 ORBextractor.nLevels: 8
+ 37 
+ 38 # ORB Extractor: Fast threshold
+ 39 # Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+ 40 # Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+ 41 # You can lower these values if your images have low contrast           
+ 42 ORBextractor.iniThFAST: 20
+ 43 ORBextractor.minThFAST: 7
+ 44 
+ 45 #--------------------------------------------------------------------------------------------
+ 46 # Viewer Parameters
+ 47 #--------------------------------------------------------------------------------------------
+ 48 Viewer.KeyFrameSize: 0.05
+ 49 Viewer.KeyFrameLineWidth: 1
+ 50 Viewer.GraphLineWidth: 0.9
+ 51 Viewer.PointSize:2
+ 52 Viewer.CameraSize: 0.08
+ 53 Viewer.CameraLineWidth: 3
+ 54 Viewer.ViewpointX: 0
+ 55 Viewer.ViewpointY: -0.7
+ 56 Viewer.ViewpointZ: -1.8
+ 57 Viewer.ViewpointF: 500
+```
 
