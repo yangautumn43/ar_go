@@ -28,7 +28,11 @@ Please get your tasks and update your progress on the project in the **Progress*
 * Need to write code to take right angle turns 
 
 ### Jay
-
+* [x] Got IMU to publish at IMU topic
+* [x] Tested IR sensors on arduino
+* [x] Tested Buck converter
+* currently working on Visual inertial SLAM:
+* Checking out the following packages: ORBSLAM2,PTAM, LSD. Major issue is that they are incompatible with Ubuntu 16 and kinetic. Ubuntu 14 and indigo were the most stable distros
 
 ### Ao
 * Working on stop-sign recognition
