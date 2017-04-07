@@ -31,7 +31,8 @@ Please get your tasks and update your progress on the project in the **Progress*
 
 
 ### Ao
-
+* Working on stop-sign recognition
+* Working on rolling ball recognition
 
 ### Yueming
 
