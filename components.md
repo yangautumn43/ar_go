@@ -10,7 +10,7 @@
 7. [Servo controller](#servo-controller---radhen)
 8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
 9. [Buck converter](#buck-converter)
-10. [Visual-inertial SLAM](#visual-inertial-slam)
+10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li)
 
 
 ## Chasis
@@ -309,7 +309,7 @@ PWM (Pulse Width Modulation / High rate control): The control of motor speed is 
 
 As I remembered: Input 5.6+ v --> Output 5.0 v
 
-## Visual-inertial SLAM
+## Visual-inertial SLAM - Yang Li
 
 ### ORB-SLAM2
 https://github.com/yangautumn/ORB_SLAM2
