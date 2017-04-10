@@ -424,3 +424,14 @@ The following is copied from `Examples/Monocular/TUM1.yaml`, we need to configur
  57 Viewer.ViewpointF: 500
 ```
 
+### oCam calibration with OpenCV3
+First, [Install OpenCV 3.0 and Python 3.4+ on Ubuntu 14.04](http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/)
+
+Then follow the [tutorial on Camera calibration With OpenCV](http://docs.opencv.org/3.1.0/d4/d94/tutorial_camera_calibration.html)
+
+#### How to compile the camera_calibration.cpp file
+Use mine as example: find the `example_cmake` folder in your opencv source file: `/home/yang/opencv/samples/cpp/example_cmake`, copy, modify and compile it.
+
+
+
+
