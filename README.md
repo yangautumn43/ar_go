@@ -60,8 +60,8 @@ Note of the first meeting:
 ![first meeting note][meeting-1]
 
 
-
-
+Note since the second meeting (April 7, 2017):
+![second meeting note][meeting-2]
 
 
 
@@ -70,3 +70,4 @@ Note of the first meeting:
 [comp-describ]:pics/competition_description.JPG
 [meeting-1]:pics/first_meeting_framework.JPG
 [ros-topics]:pics/ros_topics_needed_[part].JPG
+[meeting-2]:pics/meeting_April_7.JPG
