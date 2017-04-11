@@ -429,9 +429,16 @@ First, [Install OpenCV 3.0 and Python 3.4+ on Ubuntu 14.04](http://www.pyimagese
 
 Then follow the [tutorial on Camera calibration With OpenCV](http://docs.opencv.org/3.1.0/d4/d94/tutorial_camera_calibration.html)
 
-#### How to compile the camera_calibration.cpp file
+#### How to compile the camera_calibration.cpp file (It doesn't like monocular camera)
 Use mine as example: find the `example_cmake` folder in your opencv source file: `/home/yang/opencv/samples/cpp/example_cmake`, copy, modify and compile it.
 
+#### Try procedure: libuvc_camera --> camera_calibration (--> orb-slam2)
+Now libuvc_camera is working with the newly rebuild `libuvc` 
+When I run the node, I got a warning:
+```
+WARN ros.camera_info_manager: Camera calibration file /home/yang/.ros/camera_info/camera.yaml not found.
+```
+What I did is trying to follow the instructions in [How to Calibrate a Monocular Camera](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration)
 
 
 
