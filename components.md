@@ -424,21 +424,29 @@ The following is copied from `Examples/Monocular/TUM1.yaml`, we need to configur
  57 Viewer.ViewpointF: 500
 ```
 
-### oCam calibration with OpenCV3
-First, [Install OpenCV 3.0 and Python 3.4+ on Ubuntu 14.04](http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/)
+### Camera calibration - oCam
+#### Calibration using OpenCV
+(not important now) First, [Install OpenCV 3.0 and Python 3.4+ on Ubuntu 14.04](http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/)
 
 Then follow the [tutorial on Camera calibration With OpenCV](http://docs.opencv.org/3.1.0/d4/d94/tutorial_camera_calibration.html)
 
-#### How to compile the camera_calibration.cpp file (It doesn't like monocular camera)
+**How to compile the camera_calibration.cpp file (It doesn't like monocular camera)**
 Use mine as example: find the `example_cmake` folder in your opencv source file: `/home/yang/opencv/samples/cpp/example_cmake`, copy, modify and compile it.
 
-#### Try procedure: libuvc_camera --> camera_calibration (--> orb-slam2)
-Now libuvc_camera is working with the newly rebuild `libuvc` 
+#### Calibration using ROS packages
+**Try procedure: libuvc_camera --> camera_calibration (--> orb-slam2)**
+Now `libuvc_camera` is working with the newly rebuild `libuvc` 
 When I run the node, I got a warning:
 ```
 WARN ros.camera_info_manager: Camera calibration file /home/yang/.ros/camera_info/camera.yaml not found.
 ```
+(the `camera.yaml` file is used to store the calibration data after running `camera_calibration` node)
 What I did is trying to follow the instructions in [How to Calibrate a Monocular Camera](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration)
+
+In the termminal running `libuvc_camera`, I got the following information:
+```
+INFO ros.camera_info_manager: writing calibration data to /home/yang/.ros/camera_info/camera.yaml
+```
 
 
 
