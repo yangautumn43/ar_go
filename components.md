@@ -447,11 +447,18 @@ WARN ros.camera_info_manager: Camera calibration file /home/yang/.ros/camera_inf
 ```
 (the `camera.yaml` file is used to store the calibration data after running `camera_calibration` node)
 What I did is trying to follow the instructions in [How to Calibrate a Monocular Camera](http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration)
+ 
+And also check [wiki](http://wiki.ros.org/camera_calibration) for camera calibration, [theory](Camera Calibration and 3D Reconstruction) of camera camlibration.
 
 In the termminal running `libuvc_camera`, I got the following information:
 ```
 INFO ros.camera_info_manager: writing calibration data to /home/yang/.ros/camera_info/camera.yaml
 ```
-
-
+Lesson learned (just intuitive):
+1. nFeatures should be larger
+```
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 1500
+```
+2. Environment light should be good (maybe we can also ajust the exposure para of the camera?)
 
