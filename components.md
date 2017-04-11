@@ -455,7 +455,7 @@ In the termminal running `libuvc_camera`, I got the following information:
 INFO ros.camera_info_manager: writing calibration data to /home/yang/.ros/camera_info/camera.yaml
 ```
 Following is the content of `camera.yaml`
-```
+```yaml
 image_width: 640
 image_height: 480
 camera_name: camera
