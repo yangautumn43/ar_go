@@ -363,6 +363,11 @@ For a monocular input from topic `/camera/image_raw` run node `ORB_SLAM2/Mono`. 
 ```
 rosrun ORB_SLAM2 Mono PATH_TO_VOCABULARY PATH_TO_SETTINGS_FILE
 ```
+
+My command is 
+```
+rosrun ORB_SLAM2 Mono Vocabulary/ORBvoc.txt Examples/Monocular/ocam.yaml
+```
 The following is copied from `Examples/Monocular/TUM1.yaml`, we need to configure our YAML file for our oCam.
 ```YAML
   1 %YAML:1.0                                                                                                               
