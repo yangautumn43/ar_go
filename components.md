@@ -454,6 +454,29 @@ In the termminal running `libuvc_camera`, I got the following information:
 ```
 INFO ros.camera_info_manager: writing calibration data to /home/yang/.ros/camera_info/camera.yaml
 ```
+Following is the content of `camera.yaml`
+```
+image_width: 640
+image_height: 480
+camera_name: camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [977.6634949347863, 0, 345.7413814757732, 0, 976.9311317181429, 242.6739767243544, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.4756923568249309, 0.3486987708884488, -0.0008574457582377547, -0.0003268831859127585, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [926.132568359375, 0, 348.411146231374, 0, 0, 948.2742919921875, 242.6637827664636, 0, 0, 0, 1, 0]
+```
 Lesson learned (just intuitive):
 1. nFeatures should be larger
 ```
