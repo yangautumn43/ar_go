@@ -57,15 +57,16 @@ Below is the brief description of the competition:
 
 ![competition description][comp-describ]
 
+
+
+Note since the second meeting (April 7, 2017):
+![second meeting note][meeting-2]
+
 ROS topics that are needed for the project [parts]:
 ![ros topics][ros-topics]
 
 Note of the first meeting:
 ![first meeting note][meeting-1]
-
-
-Note since the second meeting (April 7, 2017):
-![second meeting note][meeting-2]
 
 
 
