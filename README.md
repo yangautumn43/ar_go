@@ -8,6 +8,26 @@ Please get your tasks and update your progress on the project in the **Progress*
     * Report your recent progress
     * Share ideas
 
+## TODOs
+### Current status of IMU [Jay]
+
+### Current status of Motor and Servo controller [Radhen]
+
+### Current status of IR sensors [Radhen]
+
+### Current status of Camera [Yang] 
+    Use `libuvc_camera` to publish camera image and info
+    Use the `camera_calibration` package to calibrate our lens-fixed fisheye camera
+    
+### Current status of SLAM [Yang & Jay]
+    We now use 'orb-slam2' to do visual slam
+    Need to publish to `/VO` topic
+    
+### Current status of Stop-sign detector [Ao]
+
+### Current status of Ball detector [Yueming & Ao]
+
+
 ## Progress
     Format:
        * Name
