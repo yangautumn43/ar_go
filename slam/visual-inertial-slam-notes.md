@@ -2,8 +2,8 @@
 
 ## Open Sources
 * [Awesome SLAM](https://github.com/kanster/awesome-slam/blob/master/README.md): Simultaneous Localization and Mapping, also known as SLAM, is the computational problem of constructing or updating a map of an unknown environment while simultaneously keeping track of an agent's location within it.
+* [ORB-SLAM](https://github.com/yangautumn/ORB_SLAM)ORB-SLAM is a versatile and accurate Monocular SLAM solution able to compute in real-time the camera trajectory and a sparse 3D reconstruction of the scene in a wide variety of environments, ranging from small hand-held sequences to a car driven around several city blocks. It is able to close large loops and perform global relocalisation in real-time and from wide baselines. Check out the new [ORB-SLAM2](https://github.com/yangautumn/ORB_SLAM2)(Monocular, Stereo and RGB-D). See the [project webpage](http://webdiis.unizar.es/~raulmur/orbslam/). And [youtube](https://www.youtube.com/watch?v=ufvPS5wJAx0) for the exiting video.
 * [LSD-SLAM](https://github.com/tum-vision/lsd_slam) is a novel, direct monocular SLAM technique: Instead of using keypoints, it directly operates on image intensities both for tracking and mapping. The camera is tracked using direct image alignment, while geometry is estimated in the form of semi-dense depth maps, obtained by filtering over many pixelwise stereo comparisons. We then build a Sim(3) pose-graph of keyframes, which allows to build scale-drift corrected, large-scale maps including loop-closures. LSD-SLAM runs in real-time on a CPU, and even on a modern smartphone. (LSD-SLAM: Large-Scale Direct Monocular SLAM)
-* [ORB-SLAM](https://github.com/yangautumn/ORB_SLAM)ORB-SLAM is a versatile and accurate Monocular SLAM solution able to compute in real-time the camera trajectory and a sparse 3D reconstruction of the scene in a wide variety of environments, ranging from small hand-held sequences to a car driven around several city blocks. It is able to close large loops and perform global relocalisation in real-time and from wide baselines. Check out our new [ORB-SLAM2](https://github.com/yangautumn/ORB_SLAM2)(Monocular, Stereo and RGB-D). See our [project webpage](http://webdiis.unizar.es/~raulmur/orbslam/).
 * [OKVIS](https://github.com/yangautumn/okvis): Open Keyframe-based Visual-Inertial SLAM. This is the Author's implementation of the [1] and [3] with more results in [2].
     * [1] Stefan Leutenegger, Simon Lynen, Michael Bosse, Roland Siegwart and Paul Timothy Furgale. Keyframe-based visual–inertial odometry using nonlinear optimization. The International Journal of Robotics Research, 2015.
     * [2] Stefan Leutenegger. Unmanned Solar Airplanes: Design and Algorithms for Efficient and Robust Autonomous Operation. Doctoral dissertation, 2014.
@@ -15,40 +15,6 @@
 
 
 ## Papers
-### LSD-SLAM: Large-Scale Direct Monocular SLAM
-#### Abstract
-We propose a direct (feature-less) monocular SLAM algorithm
-which, in contrast to current state-of-the-art regarding direct methods,
-allows to build large-scale, consistent maps of the environment.
-Along with highly accurate pose estimation based on direct image alignment,
-the 3D environment is reconstructed in real-time as pose-graph of
-keyframes with associated semi-dense depth maps. These are obtained by
-filtering over a large number of pixelwise small-baseline stereo comparisons.
-The explicitly scale-drift aware formulation allows the approach to
-operate on challenging sequences including large variations in scene scale.
-Major enablers are two key novelties: (1) a novel direct tracking method
-which operates on sim(3), thereby explicitly detecting scale-drift, and
-(2) an elegant probabilistic solution to include the effect of noisy depth
-values into tracking. The resulting direct monocular SLAM system runs
-in real-time on a CPU.
-
-#### Introduction
-Real-time monocular Simultaneous Localization and Mapping (SLAM) and 3D
-reconstruction have become increasingly popular research topics. Two major
-reasons are (1) their use in robotics, in particular to navigate unmanned aerial
-vehicles (UAVs) [10, 8, 1], and (2) augmented and virtual reality applications
-slowly making their way into the mass-market.
-One of the major benefits of monocular SLAM – and simultaneously one of
-the biggest challenges – comes with the inherent scale-ambiguity: The scale of
-the world cannot be observed and drifts over time, being one of the major error
-sources. The advantage is that this allows to seamlessly switch between differently
-scaled environments, such as a desk environment indoors and large-scale
-outdoor environments. Scaled sensors on the other hand, such as depth or stereo
-cameras, have a limited range at which they can provide reliable measurements
-and hence do not provide this flexibility.
-
-Pipeline of LSD-SLAM:
-![Pipeline of LSD-SLAM][lsd-slam]
 
 ### ORB-SLAM: A Versatile and Accurate Monocular SLAM System
 
@@ -127,7 +93,40 @@ redundant keyframes are discarded.
 Pipeline of ORB-SLAM:
 ![Pipeline of ORB-SLAM][orb-slam]
 
+### LSD-SLAM: Large-Scale Direct Monocular SLAM
+#### Abstract
+We propose a direct (feature-less) monocular SLAM algorithm
+which, in contrast to current state-of-the-art regarding direct methods,
+allows to build large-scale, consistent maps of the environment.
+Along with highly accurate pose estimation based on direct image alignment,
+the 3D environment is reconstructed in real-time as pose-graph of
+keyframes with associated semi-dense depth maps. These are obtained by
+filtering over a large number of pixelwise small-baseline stereo comparisons.
+The explicitly scale-drift aware formulation allows the approach to
+operate on challenging sequences including large variations in scene scale.
+Major enablers are two key novelties: (1) a novel direct tracking method
+which operates on sim(3), thereby explicitly detecting scale-drift, and
+(2) an elegant probabilistic solution to include the effect of noisy depth
+values into tracking. The resulting direct monocular SLAM system runs
+in real-time on a CPU.
 
+#### Introduction
+Real-time monocular Simultaneous Localization and Mapping (SLAM) and 3D
+reconstruction have become increasingly popular research topics. Two major
+reasons are (1) their use in robotics, in particular to navigate unmanned aerial
+vehicles (UAVs) [10, 8, 1], and (2) augmented and virtual reality applications
+slowly making their way into the mass-market.
+One of the major benefits of monocular SLAM – and simultaneously one of
+the biggest challenges – comes with the inherent scale-ambiguity: The scale of
+the world cannot be observed and drifts over time, being one of the major error
+sources. The advantage is that this allows to seamlessly switch between differently
+scaled environments, such as a desk environment indoors and large-scale
+outdoor environments. Scaled sensors on the other hand, such as depth or stereo
+cameras, have a limited range at which they can provide reliable measurements
+and hence do not provide this flexibility.
+
+Pipeline of LSD-SLAM:
+![Pipeline of LSD-SLAM][lsd-slam]
 
 ### SVO: Fast Semi-Direct Monocular Visual Odometry
 
