@@ -39,8 +39,9 @@ Please get your tasks and update your progress on the project in the **Progress*
 * Checking out the following packages: ORBSLAM2,PTAM, LSD. Major issue is that they are incompatible with Ubuntu 16 and kinetic. Ubuntu 14 and indigo were the most stable distros
 
 ### Ao
-* Working on stop-sign recognition
-* Working on rolling ball recognition
+* Working on stop-sign detection
+    - be able to detect the stop-sign but still need the distance informance
+* Working on rolling ball detection
 
 ### Yueming
 
