@@ -8,12 +8,16 @@ Please get your tasks and update your progress on the project in the **Progress*
     * Report your recent progress
     * Share ideas
 
-## TODOs
+## To Talk
 ### Current status of IMU [Jay]
+    * Can you publish imu message
 
 ### Current status of Motor and Servo controller [Radhen]
+    * What is in the pid-control folder
+    * Smoothly
 
 ### Current status of IR sensors [Radhen]
+    * What should we do with the out-range measurements
 
 ### Current status of Camera [Yang] 
     * Use 'libuvc_camera' to publish camera image and info
@@ -24,8 +28,11 @@ Please get your tasks and update your progress on the project in the **Progress*
     * Need to publish to '/VO' topic
     
 ### Current status of Stop-sign detector [Ao]
+    * Image delay when I try it
+    * No worry about distance
 
 ### Current status of Ball detector [Yueming & Ao]
+    * How to detect the ball -- blob detector?
 
 
 ## Progress
