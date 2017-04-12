@@ -71,7 +71,7 @@ Please get your tasks and update your progress on the project in the **Progress*
 * Working on rolling ball detection
 
 ### Yueming
-
+* Working on rolling ball detection
 
 
 ## Competition description
