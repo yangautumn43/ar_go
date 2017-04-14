@@ -115,6 +115,7 @@ as root to reload the hotplug rules. Your camera should be detected as /dev/vide
 ### METHOD 2: Use libuvc_ros package
 
 **This should be the common method, but I can't get image when I run the package.**
+    [Issue solved]  `sudo echo 'blacklist uvcvideo' >> /etc/modprobe.d/blacklist-*.conf`
 
 Use the updated version mentioned in the libuvc_camera folder of [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros). **Read the readme file to set permission rule to the camera.**
 
