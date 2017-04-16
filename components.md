@@ -430,6 +430,9 @@ The following is copied from `Examples/Monocular/TUM1.yaml`, we need to configur
  57 Viewer.ViewpointF: 500
 ```
 
+** Here is a pull to speedup ORB-SLAM2 start loading Vocabulary by adding [binary version of vocabulary](https://github.com/raulmur/ORB_SLAM2/pull/21) with the effort of [poine](https://github.com/poine)**
+
+
 ### Camera calibration - oCam
 #### Calibration using OpenCV
 (not important now) First, [Install OpenCV 3.0 and Python 3.4+ on Ubuntu 14.04](http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/)
