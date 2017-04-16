@@ -11,7 +11,7 @@
 8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
 9. [Buck converter](#buck-converter)
 10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li)
-        1. [ORB-SLAM2](#orb-slam2)
+        10.1 [ORB-SLAM2](#orb-slam2)
 
 
 ## Chasis
