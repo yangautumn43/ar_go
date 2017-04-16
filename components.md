@@ -10,8 +10,7 @@
 7. [Servo controller](#servo-controller---radhen)
 8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
 9. [Buck converter](#buck-converter)
-10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li)
-        10.1 [ORB-SLAM2](#orb-slam2)
+10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li) ([ORB-SLAM2](#orb-slam2))
 
 
 ## Chasis
@@ -486,4 +485,7 @@ Lesson learned (just intuitive):
 ORBextractor.nFeatures: 1500
 ```
 2. Environment light should be good (maybe we can also ajust the exposure para of the camera?)
+
+### Publish pose to ROS topic with ORB-SLAM2
+For future reference: [Publish camera position as ROS message (right handed, ENU)](https://github.com/raulmur/ORB_SLAM2/pull/102/commits/f63ac0eeb6f5fd80bbc66e969385c2c870a884c7)
 
