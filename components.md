@@ -492,3 +492,5 @@ ORBextractor.nFeatures: 1500
 ### Publish pose to ROS topic with ORB-SLAM2
 For future reference: [Publish camera position as ROS message (right handed, ENU)](https://github.com/raulmur/ORB_SLAM2/pull/102/commits/f63ac0eeb6f5fd80bbc66e969385c2c870a884c7)
 
+Here is someone did it [ros_mono.cc](https://github.com/ayushgaud/ORB_SLAM2/blob/master/Examples/ROS/ORB_SLAM2/src/ros_mono.cc)
+
