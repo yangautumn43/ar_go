@@ -47,8 +47,9 @@ Please get your tasks and update your progress on the project in the **Progress*
 * [x] Done with the camera calibration
 * [x] Get ORB-SLAM2 working with oCam
 * Working on visual-inertial SLAM
-* Need to let orb-slam publish data to topic `/vo` (visual odometry)
+* [x] Need to let orb-slam publish data to topic `/vo` (visual odometry)
 * Need to get robot-pose-ekf sub to `/vo` and `/imu` and publish to `/odom_combined`
+* Test loop closure of ORB-SLAM2
 
 
 ### Radhen
