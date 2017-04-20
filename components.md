@@ -496,6 +496,9 @@ Here is someone did it [ros_mono.cc](https://github.com/ayushgaud/ORB_SLAM2/blob
 
 
 ### LSD-SLAM
+
+[catkin_make to build](https://github.com/tum-vision/lsd_slam/issues/206)
+
 ```
 git clone https://github.com/tum-vision/lsd_slam
 git checkout catkin
