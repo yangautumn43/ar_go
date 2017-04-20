@@ -494,3 +494,16 @@ For future reference: [Publish camera position as ROS message (right handed, ENU
 
 Here is someone did it [ros_mono.cc](https://github.com/ayushgaud/ORB_SLAM2/blob/master/Examples/ROS/ORB_SLAM2/src/ros_mono.cc)
 
+
+### LSD-SLAM
+```
+git clone xxx
+git checkout catkin
+```
+add `link_directories( /opt/ros/kinetic/lib )` to `/lsd_slam/lsd_slam_core/CMakeLists.txt`
+add `add_dependencies( viewer lsd_slam_viewer_generate_messages_cpp)` to `/lsd_slam/lsd_slam_viewer/CMakeLists.txt`
+
+Eigen3 dependency: [fatal error: Eigen/Core: No such file or directory](http://answers.ros.org/question/207995/fatal-error-eigencore-no-such-file-or-directory-on-indigo/) or check [Add Eigen to ROS example includes](https://github.com/nloewen/ORB_SLAM2/commit/9733366c43f0cce074cfa69027a4b8195fc8dff6)
+
+Now working on G2O dependency.
+
