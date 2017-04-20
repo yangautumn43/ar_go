@@ -10,7 +10,7 @@
 7. [Servo controller](#servo-controller---radhen)
 8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
 9. [Buck converter](#buck-converter)
-10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li) ([ORB-SLAM2](#orb-slam2))([LSD-SLAM](#lsd-slam))
+10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li) ([ORB-SLAM2](#orb-slam2))([LSD-SLAM: no luck to get it work](#lsd-slam)) ([robot_pose_ekf](#robot-pose-ekf))
 
 
 ## Chasis
@@ -510,3 +510,8 @@ add `add_dependencies( viewer lsd_slam_viewer_generate_messages_cpp)` to `/lsd_s
 Eigen3 dependency: [fatal error: Eigen/Core: No such file or directory](http://answers.ros.org/question/207995/fatal-error-eigencore-no-such-file-or-directory-on-indigo/) or check [Add Eigen to ROS example includes](https://github.com/nloewen/ORB_SLAM2/commit/9733366c43f0cce074cfa69027a4b8195fc8dff6)
 
 Now working on G2O dependency. Install [from g2o source](https://github.com/RainerKuemmerle/g2o)
+
+
+### robot_pose_ekf
+
+
