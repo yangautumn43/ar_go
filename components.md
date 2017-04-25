@@ -315,6 +315,28 @@ As I remembered: Input 5.6+ v --> Output 5.0 v
 ### ORB-SLAM2
 https://github.com/yangautumn/ORB_SLAM2
 
+There is a repo https://github.com/fschopp/ORB_SLAM2
+```
+Simplify build and increase portability
+Changes:
+- Modified CMakeLists.txt so that non-standard build dependencies are
+  automatically downloaded and built. Removed previous build script as
+  it is no longer needed.
+- A C++11 compiler and CMake >= 3.4 are now required.
+- Replaced non-standard header files (e.g., stdin-gcc.h).
+- Replaced calls to usleep() (POSIX) with a C++11 equivalent
+- Patches for Pangolin to:
+  - avoid crash on macOS
+  - avoid dependencies on unneeded libraries, preferring a static
+    libglew over a dynamic one
+- Patch for opencv CMake scripts to use the new CMake rpath policy
+  (benefit on macOS: no need to set DYLD_LIBRARY_PATH if OpenCV is not
+  present in any of the system library search paths)
+- Now runs Viewer in main thread. Problem was that macOS method
+  nextEventMatchingMask:untilDate:inMode:dequeue: always returns null
+  when called from a thread that’s not the main thread.
+```
+
 #### Pangolin
 
 We use Pangolin for visualization and user interface. Dowload and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
