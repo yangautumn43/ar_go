@@ -566,8 +566,9 @@ The output of the filter (the estimated 3D robot pose).
 
 #### Understanding TF tree
 
-[imu frame for Robot_pose_ekf](http://answers.ros.org/question/28613/imu-frame-for-robot_pose_ekf/)
-i try to publish a static transformation between "base_link" and "imu" but still no results, also try to publish the rotation from "imu" to "base_footprint" with this code:
+**[imu frame for robot_pose_ekf](http://answers.ros.org/question/28613/imu-frame-for-robot_pose_ekf/)**
+
+I try to publish a static transformation between "base_link" and "imu" but still no results, also try to publish the rotation from "imu" to "base_footprint" with this code:
 ```c++
 void t_imuCallback(const sensor_msgs::ImuConstPtr& msg){
   static tf::TransformBroadcaster br;
@@ -578,7 +579,7 @@ void t_imuCallback(const sensor_msgs::ImuConstPtr& msg){
   transform.setRotation(orientation);
   br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "base_footprint", "imu"));
 ```
-but i get the same message..
+but I get the same message..
 
 **Possible solution**
 
