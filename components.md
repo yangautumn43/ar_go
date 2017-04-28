@@ -564,4 +564,22 @@ The output of the filter (the estimated 3D robot pose).
 
 `odom_combined → base_footprint`
 
+#### Understanding TF tree
 
+[imu frame for Robot_pose_ekf](http://answers.ros.org/question/28613/imu-frame-for-robot_pose_ekf/)
+i try to publish a static transformation between "base_link" and "imu" but still no results, also try to publish the rotation from "imu" to "base_footprint" with this code:
+```c++
+void t_imuCallback(const sensor_msgs::ImuConstPtr& msg){
+  static tf::TransformBroadcaster br;
+  tf::Quaternion orientation;
+  tf::Transform transform;
+  tf::quaternionMsgToTF(msg->orientation, orientation);
+  transform.setOrigin(tf::Vector3(0.0, 0.0, 0.0) );
+  transform.setRotation(orientation);
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "base_footprint", "imu"));
+```
+but i get the same message..
+
+**Possible solution**
+
+* I had the same problem, TF tree was connected but had the same error, Could not transform imu message from /base_imu to /base_footprint. It was solved by changing the frame id of IMU to /base_footprint............Thats it
