@@ -584,3 +584,5 @@ but I get the same message..
 **Possible solution**
 
 * I had the same problem, TF tree was connected but had the same error, Could not transform imu message from /base_imu to /base_footprint. It was solved by changing the frame id of IMU to /base_footprint............Thats it
+
+* From [here](http://ros-users.122217.n3.nabble.com/REP-105-base-footprint-and-odom-combined-td3330244.html) : `robot_pose_ekf` publishes transforms from `odom_combined` to `base_footprint`. Sometimes an urdf will have base_link as the root of the tf tree, with base_footprint as a child. Since robot_pose_ekf has a hard-coded output transform `(odom -> base_footprint)`, then this combination will break the tf tree (base footprint will have two parents) and it could explain your issues. Even if you don't have an urdf, you cannot use `robot_pose_ekf` in its current state, and have any other tf publication with `base_footprint` as the child.
