@@ -10,7 +10,7 @@
 7. [Servo controller](#servo-controller---radhen)
 8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
 9. [Buck converter](#buck-converter)
-10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li) ([ORB-SLAM2](#orb-slam2))([LSD-SLAM: no luck to get it work](#lsd-slam)) ([robot_pose_ekf](#robot-pose-ekf))
+10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li) ([ORB-SLAM2](#orb-slam2))([LSD-SLAM: no luck to get it work](#lsd-slam)) ([robot_pose_ekf](#robot_pose_ekf))
 
 
 ## Chasis
@@ -535,5 +535,33 @@ Now working on G2O dependency. Install [from g2o source](https://github.com/Rain
 
 
 ### robot_pose_ekf
+
+robot_pose_ekf implements an extended Kalman filter for determining the robot pose.
+
+#### Subscribed Topics
+
+`odom (nav_msgs/Odometry)`
+
+2D pose (used by wheel odometry): The 2D pose contains the position and orientation of the robot in the ground plane and the covariance on this pose. The message to send this 2D pose actually represents a 3D pose, but the z, roll and pitch are simply ignored.
+
+`imu_data (sensor_msgs/Imu)`
+
+3D orientation (used by the IMU): The 3D orientation provides information about the Roll, Pitch and Yaw angles of the robot base frame relative to a world reference frame. The Roll and Pitch angles are interpreted as absolute angles (because an IMU sensor has a gravity reference), and the Yaw angle is interpreted as a relative angle. A covariance matrix specifies the uncertainty on the orientation measurement. The robot pose ekf will not start when it only receives messages on this topic; it also expects messages on either the 'vo' or the 'odom' topic.
+
+`vo (nav_msgs/Odometry)`
+
+3D pose (used by Visual Odometry): The 3D pose represents the full position and orientation of the robot and the covariance on this pose. When a sensor only measures part of a 3D pose (e.g. the wheel odometry only measures a 2D pose), simply specify a large covariance on the parts of the 3D pose that were not actually measured.
+The robot_pose_ekf node does not require all three sensor sources to be available all the time. Each source gives a pose estimate and a covariance. The sources operate at different rates and with different latencies. A source can appear and disappear over time, and the node will automatically detect and use the available sensors.To add your own sensor inputs, check out the Adding a GPS sensor tutorial
+
+
+#### Published Topics
+
+`robot_pose_ekf/odom_combined (geometry_msgs/PoseWithCovarianceStamped)`
+
+The output of the filter (the estimated 3D robot pose).
+
+#### Provided tf Transforms
+
+`odom_combined → base_footprint`
 
 
