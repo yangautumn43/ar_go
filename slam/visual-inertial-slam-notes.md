@@ -11,10 +11,106 @@
     * Note that the codebase that you are provided here is free of charge and without any warranty. This is bleeding edge research software.
 * [SVO](https://github.com/uzh-rpg/rpg_svo): This code implements a semi-direct monocular visual odometry pipeline. SVO has been tested under ROS Groovy, Hydro and Indigo with Ubuntu 12.04, 13.04 and 14.04. This is research code, any fitness for a particular purpose is disclaimed. [Video](http://youtu.be/2YnIMfw6bJY) [Paper](http://rpg.ifi.uzh.ch/docs/ICRA14_Forster.pdf) 
 
-
-
+## Note
+    ORB (Oriented FAST and Rotated BRIEF)
 
 ## Papers
+
+### Visual-Inertial Monocular SLAM with Map Reuse
+Abstract— In recent years there have been excellent results
+in Visual-Inertial Odometry techniques, which aim to compute
+the incremental motion of the sensor with high accuracy
+and robustness. However these approaches lack the capability
+to close loops, and trajectory estimation accumulates drift
+even if the sensor is continually revisiting the same place. In
+this work we present a novel tightly-coupled Visual-Inertial
+Simultaneous Localization and Mapping system that is able to
+close loops and reuse its map to achieve zero-drift localization in
+already mapped areas. While our approach can be applied to
+any camera configuration, we address here the most general
+problem of a monocular camera, with its well-known scale
+ambiguity. We also propose a novel IMU initialization method,
+which computes the scale, the gravity direction, the velocity,
+and gyroscope and accelerometer biases, in a few seconds with
+high accuracy. We test our system in the 11 sequences of a
+recent micro-aerial vehicle public dataset achieving a typical
+scale factor error of 1% and centimeter precision. We compare
+to the state-of-the-art in visual-inertial odometry in sequences
+with revisiting, proving the better accuracy of our method due
+to map reuse and no drift accumulation.
+Index Terms— SLAM, Sensor Fusion, Visual-Based Navigation
+
+
+Pipeline of visual-inertial-SLAM:
+
+![Pipeline of VI-SLAM][vi-slam]
+
+
+Comparison between original ORB-SLAM2 and visual-inertial-SLAM:
+
+![comparison of VI-SLAM][com-vi-slam]
+
+
+
+### ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo and RGB-D Cameras
+#### Abstract 
+We present ORB-SLAM2 a complete SLAM sys-
+tem for monocular, stereo and RGB-D cameras, including
+map reuse, loop closing and relocalization capabilities. The
+system works in real-time in standard CPUs in a wide variety
+of environments from small hand-held indoors sequences, to
+drones flying in industrial environments and cars driving
+around a city. Our backend based on Bundle Adjustment
+with monocular and stereo observations allows for accurate
+trajectory estimation with metric scale. Our system includes
+a lightweight localization mode that leverages visual odometry
+tracks for unmapped regions and matches to map points that
+allow for zero-drift localization. The evaluation in 29 popular
+public sequences shows that our method achieves state-of-the-
+art accuracy, being in most cases the most accurate SLAM
+solution. We publish the source code, not only for the benefit
+of the SLAM community, but with the aim of being an out-of-
+the-box SLAM solution for researchers in other fields.
+
+#### Notes Taken (talking about overview of the system)
+ORB-SLAM2 for stereo and RGB-D cameras is built on
+our monocular feature-based ORB-SLAM [1], whose main
+components are summarized here for reader convenience. A
+general overview of the system is shown in Fig. 2. The
+system has three main parallel threads: 1) the Tracking to
+localize the camera with every frame by finding feature
+matches to the local map and minimizing the reprojection
+error applying motion-only BA, 2) the Local Mapping to
+manage the local map and optimize it, performing local BA,
+3) the Loop Closing to detect large loops and correct the
+accumulated drift by performing a pose-graph optimization.
+This thread launches a fourth thread to perform full BA
+after the pose-graph optimization, to compute the optimal
+structure and motion solution.
+The system has embedded a Place Recognition module
+based on DBoW2 [16] for relocalization, in case of tracking
+failure (e.g. an occlusion) or for reinitialization in an already
+mapped scene, and for loop detection. The system maintains
+a covisibiliy graph [8] that links any two keyframes observ-
+ing common points and a minimum spanning tree connecting
+all keyframes. These graph structures allow to retrieve local
+windows of keyframes, so that Tracking and Local Mapping
+operate locally, allowing to work on large environments, and
+serve as structure for the pose-graph optimization performed
+when closing a loop.
+The system uses the same ORB features [17] for tracking,
+mapping and place recognition tasks. These features are
+robust to rotation and scale and present a good invariance
+to camera auto-gain and auto-exposure, and illumination
+changes. Moreover they are fast to extract and match allow-
+ing for real-time operation and show good precision/recall
+performance in bag-of-word place recognition [18].
+
+
+Pipeline of ORB-SLAM2:
+
+![Pipeline of ORB-SLAM2][orb-slam2]
+
 
 ### ORB-SLAM: A Versatile and Accurate Monocular SLAM System
 
@@ -90,7 +186,12 @@ keyframe selection that is generous in the spawning but
 very restrictive in the culling. This policy improves tracking robustness and enhances lifelong operation because
 redundant keyframes are discarded.
 
+#### Notes taken
+* We require features that need for extraction much less than 33 ms per image, which excludes the popular SIFT (∼ 300 ms) [19], SURF (∼ 300 ms) [18], or the recent A-KAZE (∼ 100 ms) [35]. To obtain general place recognition capabilities, we require rotation invariance, which excludes BRIEF [16] and LDB [36].  We chose ORB [9], which are oriented multiscale FAST cor- ners with a 256-bit descriptor associated. They are extremely fast to compute and match, while they have good invariance to viewpoint. This allows us to match them with wide baselines, boosting the accuracy of BA.
+
+
 Pipeline of ORB-SLAM:
+
 ![Pipeline of ORB-SLAM][orb-slam]
 
 ### LSD-SLAM: Large-Scale Direct Monocular SLAM
@@ -126,6 +227,7 @@ cameras, have a limited range at which they can provide reliable measurements
 and hence do not provide this flexibility.
 
 Pipeline of LSD-SLAM:
+
 ![Pipeline of LSD-SLAM][lsd-slam]
 
 ### SVO: Fast Semi-Direct Monocular Visual Odometry
@@ -173,32 +275,10 @@ and motion blur [15].
 
 
 Pipeline of SVO-SLAM:
+
 ![Pipeline of SVO-SLAM][svo-slam]
 
 
-### Visual-Inertial Monocular SLAM with Map Reuse
-Abstract— In recent years there have been excellent results
-in Visual-Inertial Odometry techniques, which aim to compute
-the incremental motion of the sensor with high accuracy
-and robustness. However these approaches lack the capability
-to close loops, and trajectory estimation accumulates drift
-even if the sensor is continually revisiting the same place. In
-this work we present a novel tightly-coupled Visual-Inertial
-Simultaneous Localization and Mapping system that is able to
-close loops and reuse its map to achieve zero-drift localization in
-already mapped areas. While our approach can be applied to
-any camera configuration, we address here the most general
-problem of a monocular camera, with its well-known scale
-ambiguity. We also propose a novel IMU initialization method,
-which computes the scale, the gravity direction, the velocity,
-and gyroscope and accelerometer biases, in a few seconds with
-high accuracy. We test our system in the 11 sequences of a
-recent micro-aerial vehicle public dataset achieving a typical
-scale factor error of 1% and centimeter precision. We compare
-to the state-of-the-art in visual-inertial odometry in sequences
-with revisiting, proving the better accuracy of our method due
-to map reuse and no drift accumulation.
-Index Terms— SLAM, Sensor Fusion, Visual-Based Navigation
 
 
 ### Visual-Inertial Direct SLAM
@@ -240,4 +320,8 @@ Reference-style:
 [orb-slam]:orb-slam-pipeline.png
 [svo-slam]:svo-slam-pipeline.png
 [lsd-slam]:lsd-slam-pipeline.png
+[orb-slam2]:orb-slam2-pipeline.png
+[vi-slam]:vi-slam-pipeline.png
+[com-vi-slam]:comparison-vi-orb-slam.png
+
 
