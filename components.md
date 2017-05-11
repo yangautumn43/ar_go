@@ -10,7 +10,7 @@
 7. [Servo controller](#servo-controller---radhen)
 8. [Electronic speed control (ESC)](#electronic-speed-control-esc)
 9. [Buck converter](#buck-converter)
-10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li)
+10. [Visual-inertial SLAM](#visual-inertial-slam---yang-li) ([ORB-SLAM2](#orb-slam2))([LSD-SLAM: no luck to get it work](#lsd-slam)) ([robot_pose_ekf](#robot_pose_ekf))
 
 
 ## Chasis
@@ -115,6 +115,7 @@ as root to reload the hotplug rules. Your camera should be detected as /dev/vide
 ### METHOD 2: Use libuvc_ros package
 
 **This should be the common method, but I can't get image when I run the package.**
+    [Issue solved]  `sudo echo 'blacklist uvcvideo' >> /etc/modprobe.d/blacklist.conf`
 
 Use the updated version mentioned in the libuvc_camera folder of [libuvc_ros](https://github.com/AdvancedRoboticsCUBoulder/libuvc_ros). **Read the readme file to set permission rule to the camera.**
 
@@ -314,6 +315,28 @@ As I remembered: Input 5.6+ v --> Output 5.0 v
 ### ORB-SLAM2
 https://github.com/yangautumn/ORB_SLAM2
 
+There is a repo https://github.com/fschopp/ORB_SLAM2
+```
+Simplify build and increase portability
+Changes:
+- Modified CMakeLists.txt so that non-standard build dependencies are
+  automatically downloaded and built. Removed previous build script as
+  it is no longer needed.
+- A C++11 compiler and CMake >= 3.4 are now required.
+- Replaced non-standard header files (e.g., stdin-gcc.h).
+- Replaced calls to usleep() (POSIX) with a C++11 equivalent
+- Patches for Pangolin to:
+  - avoid crash on macOS
+  - avoid dependencies on unneeded libraries, preferring a static
+    libglew over a dynamic one
+- Patch for opencv CMake scripts to use the new CMake rpath policy
+  (benefit on macOS: no need to set DYLD_LIBRARY_PATH if OpenCV is not
+  present in any of the system library search paths)
+- Now runs Viewer in main thread. Problem was that macOS method
+  nextEventMatchingMask:untilDate:inMode:dequeue: always returns null
+  when called from a thread that’s not the main thread.
+```
+
 #### Pangolin
 
 We use Pangolin for visualization and user interface. Dowload and install instructions can be found at: https://github.com/stevenlovegrove/Pangolin.
@@ -429,6 +452,9 @@ The following is copied from `Examples/Monocular/TUM1.yaml`, we need to configur
  57 Viewer.ViewpointF: 500
 ```
 
+** Here is a pull to speedup ORB-SLAM2 start loading Vocabulary by adding [binary version of vocabulary](https://github.com/raulmur/ORB_SLAM2/pull/21) with the effort of [poine](https://github.com/poine)**
+
+
 ### Camera calibration - oCam
 #### Calibration using OpenCV
 (not important now) First, [Install OpenCV 3.0 and Python 3.4+ on Ubuntu 14.04](http://www.pyimagesearch.com/2015/07/20/install-opencv-3-0-and-python-3-4-on-ubuntu/)
@@ -485,3 +511,78 @@ ORBextractor.nFeatures: 1500
 ```
 2. Environment light should be good (maybe we can also ajust the exposure para of the camera?)
 
+### Publish pose to ROS topic with ORB-SLAM2
+For future reference: [Publish camera position as ROS message (right handed, ENU)](https://github.com/raulmur/ORB_SLAM2/pull/102/commits/f63ac0eeb6f5fd80bbc66e969385c2c870a884c7)
+
+Here is someone did it [ros_mono.cc](https://github.com/ayushgaud/ORB_SLAM2/blob/master/Examples/ROS/ORB_SLAM2/src/ros_mono.cc)
+
+
+### LSD-SLAM
+
+[catkin_make to build](https://github.com/tum-vision/lsd_slam/issues/206)
+
+```
+git clone https://github.com/tum-vision/lsd_slam
+git checkout catkin
+```
+add `link_directories( /opt/ros/kinetic/lib )` to `/lsd_slam/lsd_slam_core/CMakeLists.txt`
+
+add `add_dependencies( viewer lsd_slam_viewer_generate_messages_cpp)` to `/lsd_slam/lsd_slam_viewer/CMakeLists.txt`
+
+Eigen3 dependency: [fatal error: Eigen/Core: No such file or directory](http://answers.ros.org/question/207995/fatal-error-eigencore-no-such-file-or-directory-on-indigo/) or check [Add Eigen to ROS example includes](https://github.com/nloewen/ORB_SLAM2/commit/9733366c43f0cce074cfa69027a4b8195fc8dff6)
+
+Now working on G2O dependency. Install [from g2o source](https://github.com/RainerKuemmerle/g2o)
+
+
+### robot_pose_ekf
+
+robot_pose_ekf implements an extended Kalman filter for determining the robot pose.
+
+#### Subscribed Topics
+
+`odom (nav_msgs/Odometry)`
+
+2D pose (used by wheel odometry): The 2D pose contains the position and orientation of the robot in the ground plane and the covariance on this pose. The message to send this 2D pose actually represents a 3D pose, but the z, roll and pitch are simply ignored.
+
+`imu_data (sensor_msgs/Imu)`
+
+3D orientation (used by the IMU): The 3D orientation provides information about the Roll, Pitch and Yaw angles of the robot base frame relative to a world reference frame. The Roll and Pitch angles are interpreted as absolute angles (because an IMU sensor has a gravity reference), and the Yaw angle is interpreted as a relative angle. A covariance matrix specifies the uncertainty on the orientation measurement. The robot pose ekf will not start when it only receives messages on this topic; it also expects messages on either the 'vo' or the 'odom' topic.
+
+`vo (nav_msgs/Odometry)`
+
+3D pose (used by Visual Odometry): The 3D pose represents the full position and orientation of the robot and the covariance on this pose. When a sensor only measures part of a 3D pose (e.g. the wheel odometry only measures a 2D pose), simply specify a large covariance on the parts of the 3D pose that were not actually measured.
+The robot_pose_ekf node does not require all three sensor sources to be available all the time. Each source gives a pose estimate and a covariance. The sources operate at different rates and with different latencies. A source can appear and disappear over time, and the node will automatically detect and use the available sensors.To add your own sensor inputs, check out the Adding a GPS sensor tutorial
+
+
+#### Published Topics
+
+`robot_pose_ekf/odom_combined (geometry_msgs/PoseWithCovarianceStamped)`
+
+The output of the filter (the estimated 3D robot pose).
+
+#### Provided tf Transforms
+
+`odom_combined → base_footprint`
+
+#### Understanding TF tree
+
+**[imu frame for robot_pose_ekf](http://answers.ros.org/question/28613/imu-frame-for-robot_pose_ekf/)**
+
+I try to publish a static transformation between "base_link" and "imu" but still no results, also try to publish the rotation from "imu" to "base_footprint" with this code:
+```c++
+void t_imuCallback(const sensor_msgs::ImuConstPtr& msg){
+  static tf::TransformBroadcaster br;
+  tf::Quaternion orientation;
+  tf::Transform transform;
+  tf::quaternionMsgToTF(msg->orientation, orientation);
+  transform.setOrigin(tf::Vector3(0.0, 0.0, 0.0) );
+  transform.setRotation(orientation);
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "base_footprint", "imu"));
+```
+but I get the same message..
+
+**Possible solution**
+
+* I had the same problem, TF tree was connected but had the same error, Could not transform imu message from /base_imu to /base_footprint. It was solved by changing the frame id of IMU to /base_footprint............Thats it
+
+* From [here](http://ros-users.122217.n3.nabble.com/REP-105-base-footprint-and-odom-combined-td3330244.html) : `robot_pose_ekf` publishes transforms from `odom_combined` to `base_footprint`. Sometimes an urdf will have base_link as the root of the tf tree, with base_footprint as a child. Since robot_pose_ekf has a hard-coded output transform `(odom -> base_footprint)`, then this combination will break the tf tree (base footprint will have two parents) and it could explain your issues. Even if you don't have an urdf, you cannot use `robot_pose_ekf` in its current state, and have any other tf publication with `base_footprint` as the child.

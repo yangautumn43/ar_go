@@ -47,8 +47,9 @@ Please get your tasks and update your progress on the project in the **Progress*
 * [x] Done with the camera calibration
 * [x] Get ORB-SLAM2 working with oCam
 * Working on visual-inertial SLAM
-* Need to let orb-slam publish data to topic `/vo` (visual odometry)
+* [x] Need to let orb-slam publish data to topic `/vo` (visual odometry)
 * Need to get robot-pose-ekf sub to `/vo` and `/imu` and publish to `/odom_combined`
+* Test loop closure of ORB-SLAM2
 
 
 ### Radhen
@@ -62,8 +63,10 @@ Please get your tasks and update your progress on the project in the **Progress*
 * [x] Got IMU to publish at IMU topic
 * [x] Tested IR sensors on arduino
 * [x] Tested Buck converter
-* currently working on Visual inertial SLAM:
-* Checking out the following packages: ORBSLAM2,PTAM, LSD. Major issue is that they are incompatible with Ubuntu 16 and kinetic. Ubuntu 14 and indigo were the most stable distros
+* [x] ORB-SLAM2 successfully running on odroid
+* How to identify a drivable area
+* Controller design using feedback from camera
+ 
 
 ### Ao
 * Working on stop-sign detection
