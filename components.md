@@ -123,7 +123,7 @@ As mentioned in http://answers.ros.org/question/204840/libuvc_ros-not-building,
 libuvc is a library that supports enumeration, control and streaming for USB Video Class (UVC) devices, such as consumer webcams.
 
 ```bash
-$ git clone https://github.com/ktossell/libuvc.git
+$ git clone https://github.com/ktossell/libuvc.git (or just go to libuvc_ros/libuvc_camera)
 $ cd libuvc
 $ mkdir build
 $ cd build
