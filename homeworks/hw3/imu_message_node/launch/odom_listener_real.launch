@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="imu_message_node" type="odom_listener.py" name="odom_listener" output="screen">
+		<param name="output_file" value="$(find imu_message_node)/data/imu_gladiator/output-10.txt"/>
+	</node>
+</launch>

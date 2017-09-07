@@ -1,0 +1,14 @@
+<launch>
+
+	<node pkg="imu_message_node" type="imu_message_node.py" name="imu_message_node" output="screen">
+	  <param name="gyro_file" value="$(find imu_message_node)/data/imu_synthetic/gyro.txt"/>
+	</node>
+
+<!-- 	<node pkg="imu_message_node" type="odom_message_node.py" name="odom_message_node">
+		<param name="time_file" value="$(find imu_message_node)/data/imu_synthetic/timestamp.txt"/>
+	</node> -->
+
+<!-- 	<node pkg="imu_message_node" type="odom_listener.py" name="odom_listener">
+		<param name="output_file" value="$(find imu_message_node)/data/imu_synthetic/output.txt"/>
+	</node> -->
+</launch>
