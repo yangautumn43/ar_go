@@ -86,7 +86,7 @@ Please get your tasks and update your progress on the project in the **Progress*
 
 Below is the brief description of the competition:
 
-![competition description][comp-describ]
+![competition description][pics/competition_description.JPG]
 
 
 
